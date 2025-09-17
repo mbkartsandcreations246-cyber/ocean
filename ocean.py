@@ -1,4 +1,5 @@
 # file: app.py
+pip install streamlit pandas matplotlib seaborn
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
