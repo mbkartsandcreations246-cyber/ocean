@@ -90,16 +90,6 @@ elif choice == "eDNA Module":
         else:
             st.warning("Please paste DNA sequence.")
 
-# ---------------- API Docs ----------------
-elif choice == "API Docs":
-    st.title("🔗 API Documentation")
-    st.markdown("""
-    Example Endpoints (Future Ready):
-    - `/get_species_data?species=Thunnus` → Returns species info  
-    - `/upload_data` → Upload new biodiversity dataset  
-    - `/edna_match` → Match DNA sequence to species  
-    """)
-
 # ---------------- User Guide ----------------
 elif choice == "User Guide":
     st.title("📖 User Manual")
@@ -109,8 +99,7 @@ elif choice == "User Guide":
     2. Explore biodiversity & ocean trends in Visualization tab.  
     3. Browse taxonomy classification.  
     4. Upload otolith image or DNA sequence for demo analysis.  
-    5. Use API endpoints for programmatic access.  
-
+    
     **Future Scope**  
     - Real-time data ingestion pipelines  
     - AI models for taxonomy & eDNA  
