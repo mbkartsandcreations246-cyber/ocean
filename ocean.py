@@ -1,109 +1,119 @@
-# file: app.py
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import random
+import plotly.express as px
+import geopandas as gpd
 
-# --------------------------
-# 1. TITLE & SIDEBAR
-# --------------------------
-st.set_page_config(page_title="Marine Data Prototype", layout="wide")
-st.title("🌊 Unified Ocean & Biodiversity Data Platform (Prototype)")
-st.markdown("AI-driven dashboard for oceanography, fisheries & biodiversity data")
+st.set_page_config(page_title="AI-Driven Marine Data Platform", layout="wide")
 
-menu = st.sidebar.radio("Navigation", ["Home", "Ocean Data", "Biodiversity", "AI Demo","About"])
+# Sidebar Navigation
+menu = [
+    "Home", 
+    "Upload Data", 
+    "Visualization", 
+    "Taxonomy Explorer", 
+    "Otolith & Morphology", 
+    "eDNA Module", 
+    "API Docs", 
+    "User Guide"
+]
+choice = st.sidebar.radio("Navigate", menu)
 
-# --------------------------
-# 2. HOME PAGE
-# --------------------------
-if menu == "Home":
-    st.header("📌 About this Prototype")
-    st.write("""
-    This is a prototype for integrating **oceanographic, fisheries, taxonomy & molecular biology data**.  
-    Built with **Python + Streamlit**, ready to scale into a full platform.
-    
-    Features included:
-    - Ocean Data Visualization
-    - Biodiversity Records
-    - AI Demo (Mockup for Otolith / eDNA recognition)
+# ---------------- Home ----------------
+if choice == "Home":
+    st.title("🌊 AI-Driven Unified Data Platform for Marine Biodiversity")
+    st.markdown("""
+    ### About CMLRE  
+    The Centre for Marine Living Resources & Ecology (CMLRE), Kochi, focuses on 
+    sustainable management of India’s marine biodiversity.  
+
+    ### Why this platform?  
+    - Integrates oceanographic, fisheries, taxonomy, and molecular (eDNA) data  
+    - Provides visualization tools for researchers and policymakers  
+    - Supports sustainable fisheries & blue economy initiatives  
     """)
 
-# --------------------------
-# 3. OCEAN DATA PAGE
-# --------------------------
-elif menu == "Ocean Data":
-    st.header("🌍 Oceanographic Parameters")
-    # Sample dataset
-    data = {
-        "Location": ["Bay of Bengal", "Arabian Sea", "Indian Ocean", "Andaman Sea"],
-        "Temperature (°C)": [28.5, 26.3, 24.8, 27.6],
-        "Salinity (PSU)": [35, 36, 34, 33],
-        "Oxygen (mg/L)": [5.2, 4.8, 5.5, 5.0]
-    }
-    df = pd.DataFrame(data)
+# ---------------- Upload Data ----------------
+elif choice == "Upload Data":
+    st.title("📂 Upload Marine Data")
+    uploaded_file = st.file_uploader("Upload TSV or GeoParquet", type=["tsv", "parquet"])
+    if uploaded_file:
+        if uploaded_file.name.endswith(".tsv"):
+            df = pd.read_csv(uploaded_file, sep="\t")
+        else:
+            df = pd.read_parquet(uploaded_file)
+        st.success("✅ Data Uploaded Successfully!")
+        st.dataframe(df.head(20))
 
-    st.dataframe(df)
-
-    st.subheader("📊 Visualization")
-    fig, ax = plt.subplots()
-    sns.barplot(x="Location", y="Temperature (°C)", data=df, ax=ax)
-    plt.xticks(rotation=30)
-    st.pyplot(fig)
-
-# --------------------------
-# 4. BIODIVERSITY PAGE
-# --------------------------
-elif menu == "Biodiversity":
-    st.header("🐟 Biodiversity Records (Sample)")
-    biodata = {
-        "Species": ["Sardinella longiceps", "Thunnus albacares", "Lutjanus argentimaculatus"],
-        "Family": ["Clupeidae", "Scombridae", "Lutjanidae"],
-        "Common Name": ["Oil Sardine", "Yellowfin Tuna", "Mangrove Red Snapper"],
-        "Region": ["Kerala", "Tamil Nadu", "Andaman"]
-    }
-    bio_df = pd.DataFrame(biodata)
-    st.table(bio_df)
-
-    st.subheader("Biodiversity Heatmap (Mock Data)")
-    heatmap_data = pd.DataFrame({
-        "Region": ["Kerala", "Tamil Nadu", "Andaman", "Goa", "Gujarat"],
-        "Species Count": [120, 90, 75, 60, 45]
+# ---------------- Visualization ----------------
+elif choice == "Visualization":
+    st.title("📊 Visualize Oceanographic & Biodiversity Trends")
+    st.info("Upload data first in 'Upload Data' tab.")
+    # Example Demo Data
+    demo = pd.DataFrame({
+        "Year": [2018, 2019, 2020, 2021, 2022],
+        "Fish Diversity Index": [120, 135, 160, 140, 170],
+        "Sea Temp (°C)": [28.1, 28.3, 28.6, 29.0, 28.7]
     })
-    fig, ax = plt.subplots()
-    sns.barplot(x="Region", y="Species Count", data=heatmap_data, ax=ax)
-    st.pyplot(fig)
+    fig = px.line(demo, x="Year", y=["Fish Diversity Index", "Sea Temp (°C)"], markers=True)
+    st.plotly_chart(fig, use_container_width=True)
 
-# --------------------------
-# 5. AI DEMO PAGE (Mockup)
-# --------------------------
-elif menu == "AI Demo":
-    st.header("🤖 AI Demo (Prototype)")
-    option = st.radio("Choose AI Tool", ["Otolith Recognition", "eDNA Matching"])
-
-    if option == "Otolith Recognition":
-        st.subheader("Upload Otolith Image")
-        uploaded_file = st.file_uploader("Upload an image", type=["jpg", "png"])
-        if uploaded_file:
-            st.image(uploaded_file, caption="Uploaded Otolith", width=300)
-            st.success("✅ Predicted Species: " + random.choice(
-                ["Sardinella longiceps", "Thunnus albacares", "Lutjanus argentimaculatus"]
-            ))
-
-    elif option == "eDNA Matching":
-        st.subheader("Enter DNA Sequence")
-        seq = st.text_area("Paste a short DNA sequence")
-        if st.button("Match Sequence"):
-            if seq:
-                st.success("✅ Closest Match: " + random.choice(
-                    ["Sardinella longiceps", "Thunnus albacares", "Lutjanus argentimaculatus"]
-                ))
-            else:
-                st.warning("Please enter a DNA sequence first!")
-elif menu == "About":
-    st.header("ℹ️ About this Prototype")
-    st.write("""
-    - Developed as a **conceptual prototype** for CMLRE.  
-    - Built using **Python, Streamlit, Pandas**.  
-    - Designed for integration with **cloud databases, APIs, AI models** in the future.  
+# ---------------- Taxonomy Explorer ----------------
+elif choice == "Taxonomy Explorer":
+    st.title("🧬 Taxonomy Explorer")
+    st.write("Explore species hierarchy (Dummy Example):")
+    st.markdown("""
+    - Kingdom: Animalia  
+      - Phylum: Chordata  
+        - Class: Actinopterygii (Ray-finned fishes)  
+          - Order: Perciformes  
+            - Family: Scombridae  
+              - Genus: *Thunnus*  
+                - Species: *Thunnus albacares* (Yellowfin Tuna)  
     """)
+
+# ---------------- Otolith ----------------
+elif choice == "Otolith & Morphology":
+    st.title("🐟 Otolith & Morphology Module")
+    st.write("Upload otolith image for visualization (Prototype Demo).")
+    img = st.file_uploader("Upload Otolith Image", type=["jpg","png"])
+    if img:
+        st.image(img, caption="Uploaded Otolith Image", use_container_width=True)
+        st.success("Future AI model will analyze shape & classify species.")
+
+# ---------------- eDNA ----------------
+elif choice == "eDNA Module":
+    st.title("🧬 eDNA Analysis")
+    dna = st.text_area("Paste DNA sequence:")
+    if st.button("Analyze DNA"):
+        if dna:
+            st.success("Matched Species: *Sardinella longiceps* (Demo)")
+        else:
+            st.warning("Please paste DNA sequence.")
+
+# ---------------- API Docs ----------------
+elif choice == "API Docs":
+    st.title("🔗 API Documentation")
+    st.markdown("""
+    Example Endpoints (Future Ready):
+    - `/get_species_data?species=Thunnus` → Returns species info  
+    - `/upload_data` → Upload new biodiversity dataset  
+    - `/edna_match` → Match DNA sequence to species  
+    """)
+
+# ---------------- User Guide ----------------
+elif choice == "User Guide":
+    st.title("📖 User Manual")
+    st.markdown("""
+    **Steps to Use Platform**  
+    1. Upload your dataset (TSV or GeoParquet).  
+    2. Explore biodiversity & ocean trends in Visualization tab.  
+    3. Browse taxonomy classification.  
+    4. Upload otolith image or DNA sequence for demo analysis.  
+    5. Use API endpoints for programmatic access.  
+
+    **Future Scope**  
+    - Real-time data ingestion pipelines  
+    - AI models for taxonomy & eDNA  
+    - Integration with global marine databases  
+    """)
+
