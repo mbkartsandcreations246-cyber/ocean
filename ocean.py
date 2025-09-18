@@ -55,20 +55,69 @@ elif choice == "Visualization":
     })
     fig = px.line(demo, x="Year", y=["Fish Diversity Index", "Sea Temp (°C)"], markers=True)
     st.plotly_chart(fig, use_container_width=True)
+    st.title("🌍 Species Distribution Map")
+
+    st.write("This map shows demo distribution of selected species along Indian coastline.")
+
+    # Dummy species distribution data (lat, lon)
+    demo_map_data = pd.DataFrame({
+        "Species": ["Yellowfin Tuna", "Indian Oil Sardine", "Skipjack Tuna"],
+        "Latitude": [8.5, 10.0, 15.5],
+        "Longitude": [76.5, 78.5, 73.0]
+    })
+
+    st.map(demo_map_data, latitude="Latitude", longitude="Longitude")
+
+    st.dataframe(demo_map_data)
 
 # ---------------- Taxonomy Explorer ----------------
 elif choice == "Taxonomy Explorer":
     st.title("🧬 Taxonomy Explorer")
-    st.write("Explore species hierarchy (Dummy Example):")
-    st.markdown("""
-    - Kingdom: Animalia  
-      - Phylum: Chordata  
-        - Class: Actinopterygii (Ray-finned fishes)  
-          - Order: Perciformes  
-            - Family: Scombridae  
-              - Genus: *Thunnus*  
-                - Species: *Thunnus albacares* (Yellowfin Tuna)  
-    """)
+
+    st.write("Browse through taxonomy levels:")
+
+    # Dummy taxonomy data with extra info
+    taxonomy = {
+        "Chordata": {
+            "Actinopterygii (Ray-finned fishes)": {
+                "Thunnus albacares (Yellowfin Tuna)": {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/5/59/Thunnus_albacares.png",
+                    "info": "Yellowfin tuna is found in pelagic waters of tropical and subtropical oceans worldwide."
+                },
+                "Sardinella longiceps (Indian Oil Sardine)": {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Sardinella_longiceps.png",
+                    "info": "A key commercial fish along the Indian coast, commonly used in local diets."
+                },
+                "Katsuwonus pelamis (Skipjack Tuna)": {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Katsuwonus_pelamis.png",
+                    "info": "Widely distributed species important for tuna canning industry."
+                }
+            },
+            "Elasmobranchii (Sharks & Rays)": {
+                "Carcharhinus limbatus (Blacktip Shark)": {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Carcharhinus_limbatus.png",
+                    "info": "Common shark species inhabiting coastal tropical and subtropical waters."
+                },
+                "Mobula birostris (Manta Ray)": {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Manta_birostris-Thailand.png",
+                    "info": "The largest species of ray, found in tropical waters, filter-feeding on plankton."
+                }
+            }
+        }
+    }
+
+    # Dropdowns
+    phylum = st.selectbox("Select Phylum", list(taxonomy.keys()))
+
+    if phylum:
+        class_choice = st.selectbox("Select Class", list(taxonomy[phylum].keys()))
+
+        if class_choice:
+            species = st.selectbox("Select Species", list(taxonomy[phylum][class_choice].keys()))
+            if species:
+                st.success(f"✅ You selected: {species}")
+                st.image(taxonomy[phylum][class_choice][species]["image"], width=400)
+                st.info(taxonomy[phylum][class_choice][species]["info"])
 
 # ---------------- Otolith ----------------
 elif choice == "Otolith & Morphology":
