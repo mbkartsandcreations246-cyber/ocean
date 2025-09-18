@@ -12,7 +12,7 @@ st.set_page_config(page_title="Marine Data Prototype", layout="wide")
 st.title("🌊 Unified Ocean & Biodiversity Data Platform (Prototype)")
 st.markdown("AI-driven dashboard for oceanography, fisheries & biodiversity data")
 
-menu = st.sidebar.radio("Navigation", ["Home", "Ocean Data", "Biodiversity", "AI Demo"])
+menu = st.sidebar.radio("Navigation", ["Home", "Ocean Data", "Biodiversity", "AI Demo","About"])
 
 # --------------------------
 # 2. HOME PAGE
@@ -100,3 +100,10 @@ elif menu == "AI Demo":
                 ))
             else:
                 st.warning("Please enter a DNA sequence first!")
+elif menu == "About":
+    st.header("ℹ️ About this Prototype")
+    st.write("""
+    - Developed as a **conceptual prototype** for CMLRE.  
+    - Built using **Python, Streamlit, Pandas**.  
+    - Designed for integration with **cloud databases, APIs, AI models** in the future.  
+    """)
