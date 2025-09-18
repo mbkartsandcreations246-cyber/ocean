@@ -59,17 +59,28 @@ elif choice == "Visualization":
 
     st.write("This map shows demo distribution of selected species along Indian coastline.")
 
-    # Dummy species distribution data (lat, lon)
+    # Dummy data with species & coordinates
     demo_map_data = pd.DataFrame({
         "Species": ["Yellowfin Tuna", "Indian Oil Sardine", "Skipjack Tuna"],
         "Latitude": [8.5, 10.0, 15.5],
         "Longitude": [76.5, 78.5, 73.0]
     })
 
-    st.map(demo_map_data, latitude="Latitude", longitude="Longitude")
+    # Plot with plotly (shows lat/long axis + hover info)
+    fig = px.scatter_mapbox(
+        demo_map_data,
+        lat="Latitude",
+        lon="Longitude",
+        hover_name="Species",
+        zoom=4,
+        height=600
+    )
+    fig.update_layout(mapbox_style="open-street-map")  # free base map
+    fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+
+    st.plotly_chart(fig, use_container_width=True)
 
     st.dataframe(demo_map_data)
-
 # ---------------- Taxonomy Explorer ----------------
 elif choice == "Taxonomy Explorer":
     st.title("🧬 Taxonomy Explorer")
