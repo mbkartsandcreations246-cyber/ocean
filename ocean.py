@@ -12,8 +12,7 @@ menu = [
     "Visualization", 
     "Taxonomy Explorer", 
     "Otolith & Morphology", 
-    "eDNA Module", 
-    "API Docs", 
+    "eDNA Module",  
     "User Guide"
 ]
 choice = st.sidebar.radio("Navigate", menu)
