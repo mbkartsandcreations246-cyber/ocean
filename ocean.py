@@ -66,31 +66,20 @@ elif choice == "Visualization":
         "Longitude": [76.5, 78.5, 73.0]
     })
        
-    # Plot with axes
-    fig = px.scatter_geo(
-       demo_map_data,
-       lat="Latitude",
-       lon="Longitude",
-       text="Species",  # species names on points
-       projection="natural earth"
+    fig = px.scatter_mapbox(
+        demo_map_data,
+        lat="Latitude",
+        lon="Longitude",
+        hover_name="Species",
+        zoom=4,
+        height=600
     )
-
-    # Add axis grid + labels
-    fig.update_geos(
-      showcountries=True,
-      showland=True,
-      showocean=True,
-      showlakes=True,
-      showrivers=True,
-      lataxis_showgrid=True,
-      lonaxis_showgrid=True,
-      lataxis_dtick=2,   # interval of lat lines
-      lonaxis_dtick=2,   # interval of lon lines
-    )
-
-    fig.update_layout(height=600, margin={"r":0,"t":0,"l":0,"b":0})
+    fig.update_layout(mapbox_style="open-street-map")  # free base map
+    fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 
     st.plotly_chart(fig, use_container_width=True)
+
+    st.dataframe(demo_map_data)
 
   
 # ---------------- Taxonomy Explorer ----------------
