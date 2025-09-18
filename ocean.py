@@ -65,22 +65,34 @@ elif choice == "Visualization":
         "Latitude": [8.5, 10.0, 15.5],
         "Longitude": [76.5, 78.5, 73.0]
     })
-
-    # Plot with plotly (shows lat/long axis + hover info)
-    fig = px.scatter_mapbox(
-        demo_map_data,
-        lat="Latitude",
-        lon="Longitude",
-        hover_name="Species",
-        zoom=4,
-        height=600
+       
+    # Plot with axes
+    fig = px.scatter_geo(
+       demo_map_data,
+       lat="Latitude",
+       lon="Longitude",
+       text="Species",  # species names on points
+       projection="natural earth"
     )
-    fig.update_layout(mapbox_style="open-street-map")  # free base map
-    fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+
+    # Add axis grid + labels
+    fig.update_geos(
+      showcountries=True,
+      showland=True,
+      showocean=True,
+      showlakes=True,
+      showrivers=True,
+      lataxis_showgrid=True,
+      lonaxis_showgrid=True,
+      lataxis_dtick=2,   # interval of lat lines
+      lonaxis_dtick=2,   # interval of lon lines
+    )
+
+    fig.update_layout(height=600, margin={"r":0,"t":0,"l":0,"b":0})
 
     st.plotly_chart(fig, use_container_width=True)
 
-    st.dataframe(demo_map_data)
+  
 # ---------------- Taxonomy Explorer ----------------
 elif choice == "Taxonomy Explorer":
     st.title("🧬 Taxonomy Explorer")
@@ -92,7 +104,7 @@ elif choice == "Taxonomy Explorer":
         "Chordata": {
             "Actinopterygii (Ray-finned fishes)": {
                 "Thunnus albacares (Yellowfin Tuna)": {
-                    "image": "https://upload.wikimedia.org/wikipedia/commons/5/59/Thunnus_albacares.png",
+                    "image": "https://img.freepik.com/premium-photo/yellowfin-tuna-thunnus-albacares-swimming-blue-water-hunting-ocean-wildlife_174533-100935.jpg"&"https://upload.wikimedia.org/wikipedia/commons/c/c3/Thunnus_albacares.png,
                     "info": "Yellowfin tuna is found in pelagic waters of tropical and subtropical oceans worldwide."
                 },
                 "Sardinella longiceps (Indian Oil Sardine)": {
