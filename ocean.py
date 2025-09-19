@@ -85,8 +85,8 @@ elif choice == "Taxonomy Explorer":
     st.title("🧬 Taxonomy Explorer")
 
     st.write("Browse through taxonomy levels:")
-# Taxonomy data with descriptions and images
-taxonomy_data = {
+ # Taxonomy data with descriptions and images
+ taxonomy_data = {
     "Chordata": {
         "Chondrichthyes": {
             "Carcharhiniformes": {
@@ -173,23 +173,23 @@ taxonomy_data = {
             }
         }
     }
-}
+ }
 
-st.title("Taxonomy Explorer")
+ st.title("Taxonomy Explorer")
 
-# --- Hierarchical Dropdowns ---
-phylum = st.selectbox("Select Phylum", list(taxonomy_data.keys()))
-_class = st.selectbox("Select Class", list(taxonomy_data[phylum].keys()))
-order = st.selectbox("Select Order", list(taxonomy_data[phylum][_class].keys()))
-family = st.selectbox("Select Family", list(taxonomy_data[phylum][_class][order].keys()))
-species = st.selectbox("Select Species", list(taxonomy_data[phylum][_class][order][family].keys()))
+ # --- Hierarchical Dropdowns ---
+ phylum = st.selectbox("Select Phylum", list(taxonomy_data.keys()))
+ _class = st.selectbox("Select Class", list(taxonomy_data[phylum].keys()))
+ order = st.selectbox("Select Order", list(taxonomy_data[phylum][_class].keys()))
+ family = st.selectbox("Select Family", list(taxonomy_data[phylum][_class][order].keys()))
+ species = st.selectbox("Select Species", list(taxonomy_data[phylum][_class][order][family].keys()))
 
-selected = taxonomy_data[phylum][_class][order][family][species]
+ selected = taxonomy_data[phylum][_class][order][family][species]
 
-# --- Display Information ---
-st.success(f"You selected: {species}")
-st.image(selected["image"], caption=species, use_container_width=True)
-st.write(selected["desc"])
+ # --- Display Information ---
+ st.success(f"You selected: {species}")
+ st.image(selected["image"], caption=species, use_container_width=True)
+ st.write(selected["desc"])
 
 # ---------------- Otolith ----------------
 elif choice == "Otolith & Morphology":
