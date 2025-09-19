@@ -92,7 +92,7 @@ elif choice == "Taxonomy Explorer":
         "Chordata": {
             "Actinopterygii (Ray-finned fishes)": {
                 "Thunnus albacares (Yellowfin Tuna)": {
-                    "image": "https://upload.wikimedia.org/wikipedia/commons/5/59/Thunnus_albacares.png",
+                    "image": "https://upload.www.fishi-pedia.com/wp-content/uploads/2022/11/Thunnus_albacares_OceanImageBank_EllenCuylaerts_21_l-725x483.jpg",
                     "info": "Yellowfin tuna is found in pelagic waters of tropical and subtropical oceans worldwide."
                 },
                 "Sardinella longiceps (Indian Oil Sardine)": {
