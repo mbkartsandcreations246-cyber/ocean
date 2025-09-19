@@ -81,7 +81,10 @@ elif choice == "Visualization":
     st.plotly_chart(fig, use_container_width=True)
 
     st.dataframe(demo_map_data)
+elif choice == "Taxonomy Explorer":
+    st.title("🧬 Taxonomy Explorer")
 
+    st.write("Browse through taxonomy levels:")
 # Taxonomy data with descriptions and images
 taxonomy_data = {
     "Chordata": {
