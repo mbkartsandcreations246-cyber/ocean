@@ -86,7 +86,7 @@ elif choice == "Taxonomy Explorer":
 
     st.write("Browse through taxonomy levels:")
  # Taxonomy data with descriptions and images
- taxonomy_data = {
+  taxonomy_data = {
     "Chordata": {
         "Chondrichthyes": {
             "Carcharhiniformes": {
@@ -173,7 +173,7 @@ elif choice == "Taxonomy Explorer":
             }
         }
     }
- }
+  }
 
  st.title("Taxonomy Explorer")
 
