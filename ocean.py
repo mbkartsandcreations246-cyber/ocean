@@ -81,116 +81,54 @@ elif choice == "Visualization":
     st.plotly_chart(fig, use_container_width=True)
 
     st.dataframe(demo_map_data)
+# ---------------- Taxonomy Explorer ----------------
 elif choice == "Taxonomy Explorer":
     st.title("🧬 Taxonomy Explorer")
 
     st.write("Browse through taxonomy levels:")
- # Taxonomy data with descriptions and images
-  taxonomy_data = {
-    "Chordata": {
-        "Chondrichthyes": {
-            "Carcharhiniformes": {
-                "Carcharhinidae": {
-                    "Carcharhinus sorrah (Spot-tail shark)": {
-                        "image": "https://upload.wikimedia.org/wikipedia/commons/2/29/Carcharhinus_sorrah_shark.jpg",
-                        "desc": "Spot-tail shark is a small coastal shark found in the Indo-Pacific. Important in artisanal fisheries."
-                    }
+
+    # Dummy taxonomy data with extra info
+    taxonomy = {
+        "Chordata": {
+            "Actinopterygii (Ray-finned fishes)": {
+                "Thunnus albacares (Yellowfin Tuna)": {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/5/59/Thunnus_albacares.png",
+                    "info": "Yellowfin tuna is found in pelagic waters of tropical and subtropical oceans worldwide."
                 },
-                "Scoliodonidae": {
-                    "Scoliodon laticaudus (Spadenose shark)": {
-                        "image": "https://upload.wikimedia.org/wikipedia/commons/3/37/Scoliodon_laticudus.jpg",
-                        "desc": "Spadenose shark is a small shark inhabiting shallow waters. Valued for local fisheries."
-                    }
-                }
-            },
-            "Myliobatiformes": {
-                "Dasyatidae": {
-                    "Himantura gerrardi (Whitespotted whipray)": {
-                        "image": "https://upload.wikimedia.org/wikipedia/commons/5/56/Himantura_gerrardi.jpg",
-                        "desc": "A large stingray found in Indo-Pacific coastal waters, often caught as bycatch."
-                    }
-                }
-            },
-            "Rhinobatiformes": {
-                "Rhinobatidae": {
-                    "Rhinobatos granulatus (Granulated shovel nose ray)": {
-                        "image": "https://upload.wikimedia.org/wikipedia/commons/7/72/Rhinobatos_granulatus.jpg",
-                        "desc": "A benthic ray species living on sandy bottoms, vulnerable to overfishing."
-                    }
-                }
-            }
-        },
-        "Actinopterygii": {
-            "Clupeiformes": {
-                "Clupeidae": {
-                    "Sardinella longiceps (Indian oil sardine)": {
-                        "image": "https://upload.wikimedia.org/wikipedia/commons/4/47/Sardinella_longiceps.jpg",
-                        "desc": "One of the most important commercial fishes of India, rich in omega-3 fatty acids."
-                    },
-                    "Stolephorus indicus (Indian anchovy)": {
-                        "image": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Stolephorus_indicus.jpg",
-                        "desc": "A small schooling fish used for dried fish and fishmeal industries."
-                    }
-                }
-            },
-            "Siluriformes": {
-                "Ariidae": {
-                    "Osteogeneiosus militaris (Soldier catfish)": {
-                        "image": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Osteogeneiosus_militaris.jpg",
-                        "desc": "A catfish inhabiting estuaries and coastal waters, important for artisanal fisheries."
-                    }
-                }
-            },
-            "Perciformes": {
-                "Scombridae": {
-                    "Rastrelliger kanagurta (Indian mackerel)": {
-                        "image": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Rastrelliger_kanagurta.jpg",
-                        "desc": "A pelagic fish widely consumed in India. Rich in protein and omega-3 fatty acids."
-                    }
+                "Sardinella longiceps (Indian Oil Sardine)": {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Sardinella_longiceps.png",
+                    "info": "A key commercial fish along the Indian coast, commonly used in local diets."
                 },
-                "Lutjanidae": {
-                    "Lutjanus johnii (Spotted snapper)": {
-                        "image": "https://upload.wikimedia.org/wikipedia/commons/6/65/Lutjanus_johnii.jpg",
-                        "desc": "Demersal fish found in reefs and estuaries. High commercial value as food fish."
-                    }
+                "Katsuwonus pelamis (Skipjack Tuna)": {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Katsuwonus_pelamis.png",
+                    "info": "Widely distributed species important for tuna canning industry."
                 }
             },
-            "Pleuronectiformes": {
-                "Cynoglossidae": {
-                    "Cynoglossus semifasciatus (Malabar sole)": {
-                        "image": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Cynoglossus_semifasciatus.jpg",
-                        "desc": "A flatfish inhabiting sandy and muddy bottoms, valued in local markets."
-                    }
-                }
-            },
-            "Tetraodontiformes": {
-                "Tetraodontidae": {
-                    "Chelonodon patoca (Milk-spotted puffer)": {
-                        "image": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Chelonodon_patoca.jpg",
-                        "desc": "A brackish water pufferfish known for its toxin. Sometimes used in ornamental fish trade."
-                    }
+            "Elasmobranchii (Sharks & Rays)": {
+                "Carcharhinus limbatus (Blacktip Shark)": {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Carcharhinus_limbatus.png",
+                    "info": "Common shark species inhabiting coastal tropical and subtropical waters."
+                },
+                "Mobula birostris (Manta Ray)": {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Manta_birostris-Thailand.png",
+                    "info": "The largest species of ray, found in tropical waters, filter-feeding on plankton."
                 }
             }
         }
     }
-  }
 
- st.title("Taxonomy Explorer")
+    # Dropdowns
+    phylum = st.selectbox("Select Phylum", list(taxonomy.keys()))
 
- # --- Hierarchical Dropdowns ---
- phylum = st.selectbox("Select Phylum", list(taxonomy_data.keys()))
- _class = st.selectbox("Select Class", list(taxonomy_data[phylum].keys()))
- order = st.selectbox("Select Order", list(taxonomy_data[phylum][_class].keys()))
- family = st.selectbox("Select Family", list(taxonomy_data[phylum][_class][order].keys()))
- species = st.selectbox("Select Species", list(taxonomy_data[phylum][_class][order][family].keys()))
+    if phylum:
+        class_choice = st.selectbox("Select Class", list(taxonomy[phylum].keys()))
 
- selected = taxonomy_data[phylum][_class][order][family][species]
-
- # --- Display Information ---
- st.success(f"You selected: {species}")
- st.image(selected["image"], caption=species, use_container_width=True)
- st.write(selected["desc"])
-
+        if class_choice:
+            species = st.selectbox("Select Species", list(taxonomy[phylum][class_choice].keys()))
+            if species:
+                st.success(f"✅ You selected: {species}")
+                st.image(taxonomy[phylum][class_choice][species]["image"], width=400)
+                st.info(taxonomy[phylum][class_choice][species]["info"])
 # ---------------- Otolith ----------------
 elif choice == "Otolith & Morphology":
     st.title("🐟 Otolith & Morphology Module")
