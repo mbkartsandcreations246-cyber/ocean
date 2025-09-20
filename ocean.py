@@ -68,10 +68,10 @@ elif choice == "Visualization":
             fig = px.line(df, x="Temperature", y="Species_Count",
                           title="Temperature vs Species Count", markers=True)
             st.plotly_chart(fig, use_container_width=True)
-         # Scatter: Salinity vs Species Diversity
-        if {"Salinity", "Species_Diversity"}.issubset(df.columns):
-            fig2 = px.scatter(df, x="Salinity", y="Species_Diversity",
-                              color="Region", title="Salinity vs Species Diversity", markers=True)
+         # Scatter: Salinity vs pH
+        if {"Salinity", "pH"}.issubset(df.columns):
+            fig2 = px.scatter(df, x="Salinity", y="pH",
+                              color="Region", title="Salinity vs pH", markers=True)
             st.plotly_chart(fig2, use_container_width=True) 
        
 
