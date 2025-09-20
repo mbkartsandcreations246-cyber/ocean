@@ -56,7 +56,7 @@ elif choice == "Visualization":
             df = pd.read_csv(uploaded)
     else:
         # Replace with your own GitHub raw CSV link
-        sample_url = "https://github.com/mbkartsandcreations246-cyber/ocean/blob/main/oceanographic_biodiversity.csv"
+        sample_url = "https://raw.githubusercontent.com/mbkartsandcreations246-cyber/ocean/refs/heads/main/oceanographic_biodiversity.csv"
         df = pd.read_csv(sample_url)
         st.success("✅ Loaded sample data from GitHub!")
 
@@ -65,7 +65,7 @@ elif choice == "Visualization":
 
         # Line plot: temperature vs species count
         if {"Temperature", "Species_Count"}.issubset(df.columns):
-            fig = px.line(df, x="Temperature", y="Species_Count",
+            fig = px.line(df, x="Temperature", y=["Species_Count"],
                           title="Temperature vs Species Count")
             st.plotly_chart(fig, use_container_width=True)
 
