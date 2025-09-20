@@ -47,17 +47,16 @@ elif choice == "Upload Data":
 elif choice == "Visualization":
     st.title("📊 Visualize Oceanographic & Biodiversity Trends")
     st.info("Upload data first in 'Upload Data' tab.")
-    # Example Demo Data
-    demo = pd.DataFrame({
-        "Year": [2018, 2019, 2020, 2021, 2022],
-        "Fish Diversity Index": [120, 135, 160, 140, 170],
-        "Sea Temp (°C)": [28.1, 28.3, 28.6, 29.0, 28.7]
-    })
-    fig = px.line(demo, x="Year", y=["Fish Diversity Index", "Sea Temp (°C)"], markers=True)
-    st.plotly_chart(fig, use_container_width=True)
-    st.title("🌍 Species Distribution Map")
+    uploaded_file = st.file_uploader("Upload Oceanographic Biodiversity CSV", type=["csv"])
 
-    st.write("This map shows demo distribution of selected species along Indian coastline.")
+    if uploaded_file:
+        df = pd.read_csv(uploaded_file)
+        st.write("### Preview of Data", df.head())
+
+        if "Temperature" in df.columns and "Species_Count" in df.columns:
+            fig = px.scatter(df, x="Temperature", y="Species_Count", color="Salinity",
+                             title="Temperature vs Species Count (colored by Salinity)")
+            st.plotly_chart(fig, use_container_width=True)
 
     # Dummy data with species & coordinates
     demo_map_data = pd.DataFrame({
