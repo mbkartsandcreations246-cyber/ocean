@@ -89,7 +89,7 @@ elif choice == "Taxonomy Explorer":
 
     st.write("Browse through taxonomy levels:")
 
-  taxonomy = {
+    taxonomy = {
         "Chordata": {
             "Chondrichthyes": {
                 "Carcharhiniformes": {
@@ -108,17 +108,17 @@ elif choice == "Taxonomy Explorer":
                     "Lutjanidae": ["Lutjanus johnii (Spotted snapper)"],
                 },
                 "Pleuronectiformes": {
-                    "Cynoglossidae": ["Cynoglossus semifasciatus (Malabar sole)"],
+                  "Cynoglossidae": ["Cynoglossus semifasciatus (Malabar sole)"],
                 },
-            },
-        }
-    }
+             },
+          }
+      }
 
-    phylum = st.selectbox("Select Phylum", list(taxonomy.keys()))
-    cls = st.selectbox("Select Class", list(taxonomy[phylum].keys()))
-    order = st.selectbox("Select Order", list(taxonomy[phylum][cls].keys()))
-    family = st.selectbox("Select Family", list(taxonomy[phylum][cls][order].keys()))
-    species = st.selectbox("Select Species", taxonomy[phylum][cls][order][family])
+     phylum = st.selectbox("Select Phylum", list(taxonomy.keys()))
+     cls = st.selectbox("Select Class", list(taxonomy[phylum].keys()))
+     order = st.selectbox("Select Order", list(taxonomy[phylum][cls].keys()))
+     family = st.selectbox("Select Family", list(taxonomy[phylum][cls][order].keys()))
+     species = st.selectbox("Select Species", taxonomy[phylum][cls][order][family])
 
     st.success(f"📌 Selected Species: {species}")
     st.write("🔎 Useful Information about the species will appear here (description, image, habitat, importance, etc.)")
