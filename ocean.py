@@ -66,7 +66,7 @@ elif choice == "Visualization":
         # Line plot: temperature vs species count
         if {"Temperature", "Species_Count"}.issubset(df.columns):
             fig = px.line(df, x="Temperature", y=["Species_Count"],
-                          title="Temperature vs Species Count")
+                          title="Temperature vs Species Count",markers=true)
             st.plotly_chart(fig, use_container_width=True)
 
        
