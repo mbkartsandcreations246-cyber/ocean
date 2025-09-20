@@ -49,7 +49,7 @@ elif choice == "Visualization":
     st.info("Upload data first in 'Upload Data' tab.")
     uploaded_file = st.file_uploader("Upload Oceanographic Biodiversity CSV", type=["csv"])
 
-     if uploaded_file:
+    if uploaded_file:
         df = pd.read_csv(uploaded_file)
         st.write("### Preview of Data", df.head())
 
