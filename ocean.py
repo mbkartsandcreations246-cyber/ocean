@@ -71,7 +71,7 @@ elif choice == "Visualization":
 
         # Scatter: Salinity vs Species Diversity
         if {"Salinity", "Species_Diversity"}.issubset(df.columns):
-            fig2 = px.scatter(df, x="Salinity", y="Species_Diversity",
+            fig2 = px.scatter(df, x="Salinity", y=["Species_Diversity"],
                               color="Region", title="Salinity vs Species Diversity")
             st.plotly_chart(fig2, use_container_width=True)
 
