@@ -47,7 +47,7 @@ elif choice == "Upload Data":
 elif choice == "Visualization":
     st.title("📊 Visualize Oceanographic & Biodiversity Trends")
     st.info("Upload data first in 'Upload Data' tab.")
-     uploaded_file = st.file_uploader("Upload Oceanographic Biodiversity CSV", type=["csv"])
+    uploaded_file = st.file_uploader("Upload Oceanographic Biodiversity CSV", type=["csv"])
 
      if uploaded_file:
         df = pd.read_csv(uploaded_file)
@@ -59,7 +59,6 @@ elif choice == "Visualization":
             st.plotly_chart(fig, use_container_width=True)
             
     st.title("🌍 Species Distribution Map")
-
     st.write("This map shows demo distribution of selected species along Indian coastline.")
 
      # Dummy data with species & coordinates
