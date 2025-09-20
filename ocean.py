@@ -62,6 +62,12 @@ elif choice == "Visualization":
 
     if 'df' in locals():
         st.dataframe(df.head())
+        st.write("Columns:", df.columns)
+
+        # Ensure numeric
+        for col in ["Temperature", "Species_Count"]:
+            if col in df.columns:
+                df[col] = pd.to_numeric(df[col], errors="coerce")
 
         # Line plot: temperature vs species count
         if {"Temperature", "Species_Count"}.issubset(df.columns):
