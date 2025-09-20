@@ -47,9 +47,9 @@ elif choice == "Upload Data":
 elif choice == "Visualization":
     st.title("📊 Visualize Oceanographic & Biodiversity Trends")
     st.info("Upload data first in 'Upload Data' tab.")
-    uploaded_file = st.file_uploader("Upload Oceanographic Biodiversity CSV", type=["csv"])
+     uploaded_file = st.file_uploader("Upload Oceanographic Biodiversity CSV", type=["csv"])
 
-    if uploaded_file:
+     if uploaded_file:
         df = pd.read_csv(uploaded_file)
         st.write("### Preview of Data", df.head())
 
@@ -57,9 +57,13 @@ elif choice == "Visualization":
             fig = px.scatter(df, x="Temperature", y="Species_Count", color="Salinity",
                              title="Temperature vs Species Count (colored by Salinity)")
             st.plotly_chart(fig, use_container_width=True)
+            
+    st.title("🌍 Species Distribution Map")
 
-    # Dummy data with species & coordinates
-    demo_map_data = pd.DataFrame({
+    st.write("This map shows demo distribution of selected species along Indian coastline.")
+
+     # Dummy data with species & coordinates
+     demo_map_data = pd.DataFrame({
         "Species": ["Yellowfin Tuna", "Indian Oil Sardine", "Skipjack Tuna"],
         "Latitude": [8.5, 10.0, 15.5],
         "Longitude": [76.5, 78.5, 73.0]
