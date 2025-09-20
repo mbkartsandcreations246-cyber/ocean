@@ -114,11 +114,11 @@ elif choice == "Taxonomy Explorer":
           }
       }
 
-     phylum = st.selectbox("Select Phylum", list(taxonomy.keys()))
-     cls = st.selectbox("Select Class", list(taxonomy[phylum].keys()))
-     order = st.selectbox("Select Order", list(taxonomy[phylum][cls].keys()))
-     family = st.selectbox("Select Family", list(taxonomy[phylum][cls][order].keys()))
-     species = st.selectbox("Select Species", taxonomy[phylum][cls][order][family])
+    phylum = st.selectbox("Select Phylum", list(taxonomy.keys()))
+    cls = st.selectbox("Select Class", list(taxonomy[phylum].keys()))
+    order = st.selectbox("Select Order", list(taxonomy[phylum][cls].keys()))
+    family = st.selectbox("Select Family", list(taxonomy[phylum][cls][order].keys()))
+    species = st.selectbox("Select Species", taxonomy[phylum][cls][order][family])
 
     st.success(f"📌 Selected Species: {species}")
     st.write("🔎 Useful Information about the species will appear here (description, image, habitat, importance, etc.)")
