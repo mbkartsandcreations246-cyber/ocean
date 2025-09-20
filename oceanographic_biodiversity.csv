@@ -1,4 +1,4 @@
-Region,Temperature,Salinity_ppt,pH,Chlorophyll_mg_m3,Species_Count
+Region,Temperature,Salinity,pH,Chlorophyll_mg_m3,Species_Count
 Gulf of Mannar,26.1,33.5,7.8,0.6,120
 Bay of Bengal,27.3,34.0,7.9,1.1,90
 Lakshadweep,28.4,35.2,8.1,0.9,75
