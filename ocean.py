@@ -62,7 +62,7 @@ elif choice == "Visualization":
     st.write("This map shows demo distribution of selected species along Indian coastline.")
 
      # Dummy data with species & coordinates
-     demo_map_data = pd.DataFrame({
+    demo_map_data = pd.DataFrame({
         "Species": ["Yellowfin Tuna", "Indian Oil Sardine", "Skipjack Tuna"],
         "Latitude": [8.5, 10.0, 15.5],
         "Longitude": [76.5, 78.5, 73.0]
