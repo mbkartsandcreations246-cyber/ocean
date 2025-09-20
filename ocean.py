@@ -48,7 +48,7 @@ elif choice == "Visualization":
     st.title("📊 Visualize Oceanographic & Biodiversity Trends")
     st.info("Upload data first in 'Upload Data' tab.")
     
-    option = st.radio("Choose Data Source:", ["Upload My Data", "Use Sample Data"])
+    option = st.radio("Choose Data Source:", ["Upload My Data", "Use stored Data"])
     
     if option == "Upload My Data":
         uploaded = st.file_uploader("Upload Oceanographic Biodiversity CSV", type=["csv"])
@@ -56,7 +56,7 @@ elif choice == "Visualization":
             df = pd.read_csv(uploaded)
     else:
         # Replace with your own GitHub raw CSV link
-        sample_url = "https://raw.githubusercontent.com/your-username/your-repo/main/sample_ocean.csv"
+        sample_url = "https://github.com/mbkartsandcreations246-cyber/ocean/blob/main/oceanographic_biodiversity.csv"
         df = pd.read_csv(sample_url)
         st.success("✅ Loaded sample data from GitHub!")
 
