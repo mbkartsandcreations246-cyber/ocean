@@ -62,17 +62,17 @@ elif choice == "Visualization":
 
     if 'df' in locals():
         st.dataframe(df.head())
-        if "Temperature" in df.columns:
-           df["Temperature"] = pd.to_numeric(df["Temperature"], errors="coerce")
-        if "Species_Count" in df.columns:
-           df["Species_Count"] = pd.to_numeric(df["Species_Count"], errors="coerce")
-
+        
         # Line plot: temperature vs species count
         if {"Temperature", "Species_Count"}.issubset(df.columns):
             fig = px.line(df, x="Temperature", y="Species_Count",
                           title="Temperature vs Species Count", markers=True)
             st.plotly_chart(fig, use_container_width=True)
-
+         # Scatter: Salinity vs Species Diversity
+        if {"Salinity", "Species_Diversity"}.issubset(df.columns):
+            fig2 = px.scatter(df, x="Salinity", y=["Species_Diversity"],
+                              color="Region", title="Salinity vs Species Diversity")
+            st.plotly_chart(fig2, use_container_width=True) 
        
 
     #----map-----        
