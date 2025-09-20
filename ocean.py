@@ -73,7 +73,7 @@ elif choice == "Visualization":
             fig2 = px.scatter(df, x="Salinity", y="pH",
                               color="Region",title="Salinity vs pH")
             st.plotly_chart(fig2, use_container_width=True) 
-            fig.update_traces(marker=dict(color='red', size=12)
+            fig.update_traces(marker=dict(color='red', size=12))
        
 
     #----map-----        
