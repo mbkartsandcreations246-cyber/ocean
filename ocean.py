@@ -89,48 +89,40 @@ elif choice == "Taxonomy Explorer":
 
     st.write("Browse through taxonomy levels:")
 
-    # Dummy taxonomy data with extra info
-    taxonomy = {
+  taxonomy = {
         "Chordata": {
-            "Actinopterygii (Ray-finned fishes)": {
-                "Thunnus albacares (Yellowfin Tuna)": {
-                    "image": "https://upload.www.fishi-pedia.com/wp-content/uploads/2022/11/Thunnus_albacares_OceanImageBank_EllenCuylaerts_21_l-725x483.jpg",
-                    "info": "Yellowfin tuna is found in pelagic waters of tropical and subtropical oceans worldwide."
+            "Chondrichthyes": {
+                "Carcharhiniformes": {
+                    "Carcharhinidae": ["Carcharhinus sorrah (Spot-tail shark)"],
                 },
-                "Sardinella longiceps (Indian Oil Sardine)": {
-                    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Sardinella_longiceps.png",
-                    "info": "A key commercial fish along the Indian coast, commonly used in local diets."
+                "Carcharhiniformes_2": {
+                    "Scoliodonidae": ["Scoliodon laticaudus (Spadenose shark)"],
                 },
-                "Katsuwonus pelamis (Skipjack Tuna)": {
-                    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Katsuwonus_pelamis.png",
-                    "info": "Widely distributed species important for tuna canning industry."
-                }
             },
-            "Elasmobranchii (Sharks & Rays)": {
-                "Carcharhinus limbatus (Blacktip Shark)": {
-                    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Carcharhinus_limbatus.png",
-                    "info": "Common shark species inhabiting coastal tropical and subtropical waters."
+            "Actinopterygii": {
+                "Clupeiformes": {
+                    "Clupeidae": ["Sardinella longiceps (Indian oil sardine)", "Stolephorus indicus (Indian anchovy)"],
                 },
-                "Mobula birostris (Manta Ray)": {
-                    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Manta_birostris-Thailand.png",
-                    "info": "The largest species of ray, found in tropical waters, filter-feeding on plankton."
-                }
-            }
+                "Perciformes": {
+                    "Carangidae": ["Rastrelliger kanagurta (Indian mackerel)"],
+                    "Lutjanidae": ["Lutjanus johnii (Spotted snapper)"],
+                },
+                "Pleuronectiformes": {
+                    "Cynoglossidae": ["Cynoglossus semifasciatus (Malabar sole)"],
+                },
+            },
         }
     }
 
-    # Dropdowns
     phylum = st.selectbox("Select Phylum", list(taxonomy.keys()))
+    cls = st.selectbox("Select Class", list(taxonomy[phylum].keys()))
+    order = st.selectbox("Select Order", list(taxonomy[phylum][cls].keys()))
+    family = st.selectbox("Select Family", list(taxonomy[phylum][cls][order].keys()))
+    species = st.selectbox("Select Species", taxonomy[phylum][cls][order][family])
 
-    if phylum:
-        class_choice = st.selectbox("Select Class", list(taxonomy[phylum].keys()))
+    st.success(f"📌 Selected Species: {species}")
+    st.write("🔎 Useful Information about the species will appear here (description, image, habitat, importance, etc.)")
 
-        if class_choice:
-            species = st.selectbox("Select Species", list(taxonomy[phylum][class_choice].keys()))
-            if species:
-                st.success(f"✅ You selected: {species}")
-                st.image(taxonomy[phylum][class_choice][species]["image"], width=400)
-                st.info(taxonomy[phylum][class_choice][species]["info"])
 # ---------------- Otolith ----------------
 elif choice == "Otolith & Morphology":
     st.title("🐟 Otolith & Morphology Module")
