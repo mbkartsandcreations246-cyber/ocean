@@ -71,10 +71,9 @@ elif choice == "Visualization":
         # Scatter: Salinity vs pH
         if {"Salinity", "pH","species_count"}.issubset(df.columns):
             fig2 = px.scatter(df, x="Salinity", y="pH",
-                              color="Region",title="Salinity vs pH")
+                              color="Region",size="Species_Count",title="Salinity vs pH")
             st.plotly_chart(fig2, use_container_width=True) 
-            fig.update_traces(marker=dict(color='red', size="species_count"))
-       
+           
 
     #----map-----        
     st.title("🌍 Species Distribution Map")
