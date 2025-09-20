@@ -47,17 +47,35 @@ elif choice == "Upload Data":
 elif choice == "Visualization":
     st.title("📊 Visualize Oceanographic & Biodiversity Trends")
     st.info("Upload data first in 'Upload Data' tab.")
-    uploaded_file = st.file_uploader("Upload Oceanographic Biodiversity CSV", type=["csv"])
+    
+    option = st.radio("Choose Data Source:", ["Upload My Data", "Use Sample Data"])
+    
+    if option == "Upload My Data":
+        uploaded = st.file_uploader("Upload Oceanographic Biodiversity CSV", type=["csv"])
+        if uploaded:
+            df = pd.read_csv(uploaded)
+    else:
+        # Replace with your own GitHub raw CSV link
+        sample_url = "https://raw.githubusercontent.com/your-username/your-repo/main/sample_ocean.csv"
+        df = pd.read_csv(sample_url)
+        st.success("✅ Loaded sample data from GitHub!")
 
-    if uploaded_file:
-        df = pd.read_csv(uploaded_file)
-        st.write("### Preview of Data", df.head())
+    if 'df' in locals():
+        st.dataframe(df.head())
 
-        if "Temperature" in df.columns and "Species_Count" in df.columns:
-            fig = px.scatter(df, x="Temperature", y="Species_Count", color="Salinity",
-                             title="Temperature vs Species Count (colored by Salinity)")
+        # Line plot: temperature vs species count
+        if {"Temperature", "Species_Count"}.issubset(df.columns):
+            fig = px.line(df, x="Temperature", y="Species_Count",
+                          title="Temperature vs Species Count")
             st.plotly_chart(fig, use_container_width=True)
-            
+
+        # Scatter: Salinity vs Species Diversity
+        if {"Salinity", "Species_Diversity"}.issubset(df.columns):
+            fig2 = px.scatter(df, x="Salinity", y="Species_Diversity",
+                              color="Region", title="Salinity vs Species Diversity")
+            st.plotly_chart(fig2, use_container_width=True)
+
+    #----map-----        
     st.title("🌍 Species Distribution Map")
     st.write("This map shows demo distribution of selected species along Indian coastline.")
 
