@@ -94,11 +94,12 @@ elif choice == "Visualization":
             lat="latitude", 
             lon="longitude", 
             hover_name="species",
-            zoom=5,                   
+            zoom=4,                   
             height=600,
         )
         fig.update_layout(mapbox_style="open-street-map")  # free base map
         fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+        fig.update_traces(marker=dict(size=35))
   
         st.plotly_chart(fig, use_container_width=True)
         
