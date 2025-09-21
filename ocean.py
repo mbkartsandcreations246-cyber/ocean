@@ -83,17 +83,17 @@ elif choice == "Visualization":
     st.write("This map shows demo distribution of selected species along Indian coastline.")
 
      # Dummy data with species & coordinates
-    demo_map_data = pd.DataFrame({
-        "Species": ["Yellowfin Tuna", "Indian Oil Sardine", "Skipjack Tuna"],
-        "Latitude": [8.5, 10.0, 15.5],
-        "Longitude": [76.5, 78.5, 73.0]
-    })
+    sample_url = "https://raw.githubusercontent.com/mbkartsandcreations246-cyber/ocean/refs/heads/main/biodiversity.csv"
+        dff = pd.read_csv(sample_url)
+        st.success("✅ Loaded sample data from GitHub!")
+        st.dataframe(dff.head())
+        dff.columns = df.columns.str.strip().str.lower().str.replace("_", " ")
        
     fig = px.scatter_mapbox(
         demo_map_data,
-        lat="Latitude",
-        lon="Longitude",
-        hover_name="Species",
+        lat="latitude",
+        lon="longitude",
+        hover_name="species",
         zoom=4,
         height=600,
         size=[20, 20, 20],
