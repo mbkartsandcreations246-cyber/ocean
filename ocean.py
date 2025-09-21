@@ -94,8 +94,9 @@ elif choice == "Visualization":
             lat="latitude", 
             lon="longitude", 
             hover_name="species",
-            zoom=4,                   
+            zoom=5,                   
             height=600,
+            size=[30]*len(df),
             
         )
         fig.update_layout(mapbox_style="open-street-map")  # free base map
