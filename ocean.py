@@ -66,7 +66,7 @@ elif choice == "Visualization":
         # Line plot: temperature vs species count
         if {"temperature", "region"}.issubset(df.columns):
             fig = px.bar(df,x="region",y="temperature",
-                         width=[0.3]*len(df),title="Average Temperature by Region")
+                         bargap=0.4,title="Average Temperature by Region")
             st.plotly_chart(fig, use_container_width=True)
         # Scatter: Salinity vs pH
         if {"salinity", "ph","species count"}.issubset(df.columns):
