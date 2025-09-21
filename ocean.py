@@ -84,10 +84,10 @@ elif choice == "Visualization":
 
      # Dummy data with species & coordinates
     sample_url = "https://raw.githubusercontent.com/mbkartsandcreations246-cyber/ocean/refs/heads/main/biodiversity.csv"
-        dff = pd.read_csv(sample_url)
+        df = pd.read_csv(sample_url)
         st.success("✅ Loaded sample data from GitHub!")
-        st.dataframe(dff.head())
-        dff.columns = dff.columns.str.strip().str.lower().str.replace("_", " ")
+        st.dataframe(df.head())
+        df.columns = df.columns.str.strip().str.lower().str.replace("_", " ")
        
     fig = px.scatter_mapbox(
         demo_map_data,
