@@ -90,7 +90,7 @@ elif choice == "Visualization":
     df.columns = df.columns.str.strip().str.lower().str.replace("_", " ")
     if {"latitude", "longitude", "species"}.issubset(df.columns):   
            fig = px.scatter_mapbox(
-               df,
+               demo data,
                lat="latitude", 
                lon="longitude", 
                hover_name="species",
