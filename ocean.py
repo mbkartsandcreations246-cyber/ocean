@@ -90,7 +90,7 @@ elif choice == "Visualization":
     df.columns = df.columns.str.strip().str.lower().str.replace("_", " ")
     if {"latitude", "longitude", "species"}.issubset(df.columns):   
            fig = px.scatter_mapbox(
-             demo_map_data,
+             df,
              lat="latitude",
              lon="longitude",
              hover_name="species",
@@ -102,7 +102,7 @@ elif choice == "Visualization":
   
            st.plotly_chart(fig, use_container_width=True)
 
-           st.dataframe(demo_map_data)
+           st.dataframe(df)
 # ---------------- Taxonomy Explorer ----------------
 elif choice == "Taxonomy Explorer":
     st.title("🧬 Taxonomy Explorer")
