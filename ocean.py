@@ -62,7 +62,7 @@ elif choice == "Visualization":
 
     if 'df' in locals():
         st.dataframe(df.head())
-        df.columns = df.columns.str.strip().str.lower().str.replace(" ", "_")
+        df.columns = df.columns.str.strip().str.lower().str.replace("_", " ")
         # Line plot: temperature vs species count
         if {"temperature", "species count"}.issubset(df.columns):
             fig = px.line(df, x="temperature", y="species count",
