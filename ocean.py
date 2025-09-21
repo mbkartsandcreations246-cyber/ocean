@@ -89,19 +89,19 @@ elif choice == "Visualization":
     st.dataframe(dff.head())
     dff.columns = dff.columns.str.strip().str.lower().str.replace("_", " ")
     if {"latitude", "longitude", "species"}.issubset(dff.columns):   
-           fig = px.scatter_mapbox(
-               dff,
-               lat="latitude", 
-               lon="longitude", 
-               hover_name="species",
-               zoom=4,                   
-               height=600,
-               size=[20, 20, 20]
-           )
-           fig.update_layout(mapbox_style="open-street-map")  # free base map
-           fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+        fig = px.scatter_mapbox(
+            dff,
+            lat="latitude", 
+            lon="longitude", 
+            hover_name="species",
+            zoom=4,                   
+            height=600,
+            size=[20, 20, 20]
+        )
+        fig.update_layout(mapbox_style="open-street-map")  # free base map
+        fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
   
-           st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True)
         
 # ---------------- Taxonomy Explorer ----------------
 elif choice == "Taxonomy Explorer":
