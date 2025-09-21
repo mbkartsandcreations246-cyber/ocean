@@ -118,7 +118,7 @@ elif choice == "Taxonomy Explorer":
 
     st.success(f"📌 Selected Species: {species}")
     st.write(f"🔎 Information: {info}")
-    st.image(image_url, caption=species, use_column_width=True)
+    st.image(image_url, caption=species, use_container_width=True)
 
  
 
