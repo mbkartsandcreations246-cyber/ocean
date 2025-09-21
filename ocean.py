@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import geopandas as gpd
+from species_data import taxonomy 
 
 st.set_page_config(page_title="AI-Driven Marine Data Platform", layout="wide")
 
@@ -106,40 +107,21 @@ elif choice == "Taxonomy Explorer":
     st.title("🧬 Taxonomy Explorer")
 
     st.write("Browse through taxonomy levels:")
-
-    taxonomy = {
-        "Chordata": {
-            "Chondrichthyes": {
-                "Carcharhiniformes": {
-                    "Carcharhinidae": ["Carcharhinus sorrah (Spot-tail shark)"],
-                },
-                "Carcharhiniformes_2": {
-                    "Scoliodonidae": ["Scoliodon laticaudus (Spadenose shark)"],
-                },
-            },
-            "Actinopterygii": {
-                "Clupeiformes": {
-                    "Clupeidae": ["Sardinella longiceps (Indian oil sardine)", "Stolephorus indicus (Indian anchovy)"],
-                },
-                "Perciformes": {
-                    "Carangidae": ["Rastrelliger kanagurta (Indian mackerel)"],
-                    "Lutjanidae": ["Lutjanus johnii (Spotted snapper)"],
-                },
-                "Pleuronectiformes": {
-                  "Cynoglossidae": ["Cynoglossus semifasciatus (Malabar sole)"],
-                },
-             },
-          }
-      }
-
-    phylum = st.selectbox("Select Phylum", list(taxonomy.keys()))
+    phylum = st.selectbox("Select Phylum", list(taxonomy.keys())
     cls = st.selectbox("Select Class", list(taxonomy[phylum].keys()))
     order = st.selectbox("Select Order", list(taxonomy[phylum][cls].keys()))
     family = st.selectbox("Select Family", list(taxonomy[phylum][cls][order].keys()))
-    species = st.selectbox("Select Species", taxonomy[phylum][cls][order][family])
+    species = st.selectbox("Select Species", list(taxonomy[phylum][cls][order][family].keys()))
+
+    # Display species info
+    info = taxonomy[phylum][cls][order][family][species]["info"]
+    image_url = taxonomy[phylum][cls][order][family][species]["image"]
 
     st.success(f"📌 Selected Species: {species}")
-    st.write("🔎 Useful Information about the species will appear here (description, image, habitat, importance, etc.)")
+    st.write(f"🔎 Information: {info}")
+    st.image(image_url, caption=species, use_column_width=True)
+
+ 
 
 # ---------------- Otolith ----------------
 elif choice == "Otolith & Morphology":
