@@ -102,8 +102,7 @@ elif choice == "Visualization":
            fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
   
            st.plotly_chart(fig, use_container_width=True)
-
-           st.dataframe(df)
+        
 # ---------------- Taxonomy Explorer ----------------
 elif choice == "Taxonomy Explorer":
     st.title("🧬 Taxonomy Explorer")
