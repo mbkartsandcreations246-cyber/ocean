@@ -6,7 +6,7 @@ taxonomy = {
                 "Carcharhinidae": {
                     "Carcharhinus sorrah (Spot-tail shark)": {
                         "info": "A common reef shark found in Indo-Pacific waters.",
-                        "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/Carcharhinus_sorrah.jpg"
+                        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQy4bp_8W4zLCsZmGsCDrSh2tb373-T91QRLxFAiHc1fNJVv1vl728uBrfCeB-YuY9Tw&usqp=CAU"
                     },
                 },
                 "Carcharhiniformes_2": {
