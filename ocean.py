@@ -89,9 +89,15 @@ elif choice == "Visualization":
     st.dataframe(df.head())
     df.columns = df.columns.str.strip().str.lower().str.replace("_", " ")
     if {"latitude", "longitude", "species"}.issubset(df.columns):   
-           fig = px.scatter_mapbox(df, lat="latitude", lon="longitude", hover_name="species", zoom=4,
-                                   height=600,
-                                   size=[20, 20, 20])
+           fig = px.scatter_mapbox(
+               df,
+               lat="latitude", 
+               lon="longitude", 
+               hover_name="species",
+               zoom=4,                   
+               height=600,
+               size=[20, 20, 20]
+           )
            fig.update_layout(mapbox_style="open-street-map")  # free base map
            fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
   
