@@ -26,7 +26,7 @@ taxonomy = {
                     }
                 "Dasyatidae (Stingrays)":{
                     "Himantura gerrardi (Whitespotted whipray)":{
-                        "info": ""A large stingray species found in shallow coastal waters of the Indo-Pacific. Recognizable by its white spots on a dark body and a long whip-like tail. It is benthic, feeding on crustaceans and small fish.",
+                        "info": "A large stingray species found in shallow coastal waters of the Indo-Pacific. Recognizable by its white spots on a dark body and a long whip-like tail. It is benthic, feeding on crustaceans and small fish.",
                         "image": "https://upload.wikimedia.org/wikipedia/commons/4/44/Himantura_gerrardi.jpg"
                         }
                     }
