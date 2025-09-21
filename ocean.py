@@ -88,22 +88,21 @@ elif choice == "Visualization":
         st.success("✅ Loaded sample data from GitHub!")
         st.dataframe(df.head())
         df.columns = df.columns.str.strip().str.lower().str.replace("_", " ")
-       
-    fig = px.scatter_mapbox(
-        demo_map_data,
-        lat="latitude",
-        lon="longitude",
-        hover_name="species",
-        zoom=4,
-        height=600,
-        size=[20, 20, 20],
-    )
-    fig.update_layout(mapbox_style="open-street-map")  # free base map
-    fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+        if {"latitude", "longitude", "species"}.issubset(df.columns):   
+           fig = px.scatter_mapbox(
+             demo_map_data,
+             lat="latitude",
+             lon="longitude",
+             hover_name="species",
+             zoom=4,
+             height=600,
+             size=[20, 20, 20])
+           fig.update_layout(mapbox_style="open-street-map")  # free base map
+           fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+  
+           st.plotly_chart(fig, use_container_width=True)
 
-    st.plotly_chart(fig, use_container_width=True)
-
-    st.dataframe(demo_map_data)
+           st.dataframe(demo_map_data)
 # ---------------- Taxonomy Explorer ----------------
 elif choice == "Taxonomy Explorer":
     st.title("🧬 Taxonomy Explorer")
