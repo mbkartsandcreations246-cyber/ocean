@@ -46,7 +46,6 @@ elif choice == "Upload Data":
 # ---------------- Visualization ----------------
 elif choice == "Visualization":
     st.title("📊 Visualize Oceanographic & Biodiversity Trends")
-    st.info("Upload data first in 'Upload Data' tab.")
     
     option = st.radio("Choose Data Source:", ["Upload My Data", "Use stored Data"])
     
@@ -85,7 +84,6 @@ elif choice == "Visualization":
      # Dummy data with species & coordinates
     sample_url = "https://raw.githubusercontent.com/mbkartsandcreations246-cyber/ocean/refs/heads/main/biodiversity.csv"
     dff = pd.read_csv(sample_url)
-    st.success("✅ Loaded sample data from GitHub!")
     st.dataframe(dff.head())
     dff.columns = dff.columns.str.strip().str.lower().str.replace("_", " ")
     if {"latitude", "longitude", "species"}.issubset(dff.columns):   
@@ -99,7 +97,7 @@ elif choice == "Visualization":
         )
         fig.update_layout(mapbox_style="open-street-map")  # free base map
         fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-        fig.update_traces(marker=dict(size=25, opacity=0.4))
+        fig.update_traces(marker=dict(size=25, opacity=0.6))
   
         st.plotly_chart(fig, use_container_width=True)
         
