@@ -87,7 +87,7 @@ elif choice == "Visualization":
         dff = pd.read_csv(sample_url)
         st.success("✅ Loaded sample data from GitHub!")
         st.dataframe(dff.head())
-        dff.columns = df.columns.str.strip().str.lower().str.replace("_", " ")
+        dff.columns = dff.columns.str.strip().str.lower().str.replace("_", " ")
        
     fig = px.scatter_mapbox(
         demo_map_data,
