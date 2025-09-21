@@ -64,14 +64,14 @@ elif choice == "Visualization":
         st.dataframe(df.head())
         df.columns = df.columns.str.strip().str.lower().str.replace(" ", "_")
         # Line plot: temperature vs species count
-        if {"Temperature", "Species_Count"}.issubset(df.columns):
-            fig = px.line(df, x="Temperature", y="Species_Count",
+        if {"temperature", "species count"}.issubset(df.columns):
+            fig = px.line(df, x="temperature", y="species count",
                           title="Temperature vs Species Count", markers=True)
             st.plotly_chart(fig, use_container_width=True)
         # Scatter: Salinity vs pH
-        if {"Salinity", "pH","Species_Count"}.issubset(df.columns):
-            fig2 = px.scatter(df, x="Salinity", y="pH",
-                              color="Region",size="Species_Count",title="Salinity vs pH")
+        if {"salinity", "ph","species count"}.issubset(df.columns):
+            fig2 = px.scatter(df, x="salinity", y="ph",
+                              color="region",size="species count",title="Salinity vs pH")
             st.plotly_chart(fig2, use_container_width=True) 
            
 
