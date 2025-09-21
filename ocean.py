@@ -96,7 +96,7 @@ elif choice == "Visualization":
             hover_name="species",
             zoom=4,                   
             height=600,
-            size=[20, 20, 20]
+            
         )
         fig.update_layout(mapbox_style="open-street-map")  # free base map
         fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
