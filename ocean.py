@@ -84,13 +84,13 @@ elif choice == "Visualization":
 
      # Dummy data with species & coordinates
     sample_url = "https://raw.githubusercontent.com/mbkartsandcreations246-cyber/ocean/refs/heads/main/biodiversity.csv"
-    df = pd.read_csv(sample_url)
+    dff = pd.read_csv(sample_url)
     st.success("✅ Loaded sample data from GitHub!")
-    st.dataframe(df.head())
-    df.columns = df.columns.str.strip().str.lower().str.replace("_", " ")
-    if {"latitude", "longitude", "species"}.issubset(df.columns):   
+    st.dataframe(dff.head())
+    dff.columns = dff.columns.str.strip().str.lower().str.replace("_", " ")
+    if {"latitude", "longitude", "species"}.issubset(dff.columns):   
            fig = px.scatter_mapbox(
-               demo data,
+               dff,
                lat="latitude", 
                lon="longitude", 
                hover_name="species",
