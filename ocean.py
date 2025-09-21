@@ -58,7 +58,6 @@ elif choice == "Visualization":
         # Replace with your own GitHub raw CSV link
         sample_url = "https://raw.githubusercontent.com/mbkartsandcreations246-cyber/ocean/refs/heads/main/oceanographic_biodiversity.csv"
         df = pd.read_csv(sample_url)
-        st.success("✅ Loaded sample data from GitHub!")
 
     if 'df' in locals():
         st.dataframe(df.head())
@@ -107,7 +106,7 @@ elif choice == "Taxonomy Explorer":
     st.title("🧬 Taxonomy Explorer")
 
     st.write("Browse through taxonomy levels:")
-    phylum = st.selectbox("Select Phylum", list(taxonomy.keys())
+    phylum = st.selectbox("Select Phylum", list(taxonomy.keys()))
     cls = st.selectbox("Select Class", list(taxonomy[phylum].keys()))
     order = st.selectbox("Select Order", list(taxonomy[phylum][cls].keys()))
     family = st.selectbox("Select Family", list(taxonomy[phylum][cls][order].keys()))
