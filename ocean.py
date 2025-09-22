@@ -118,9 +118,9 @@ elif choice == "Taxonomy Explorer":
     st.success(f"📌 Selected Species: {species}")
     coll, colr = st.columns(2)
     with coll:
-      st.image(image_path, caption=species, width=500)
+      st.image(image_path, caption=species, width=400)
     with colr:
-      st.markdown(f"<p style='font-size:26px'><b>{species}</b></p>", unsafe_allow_html=True)
+      st.markdown(f"<p style='font-size:26px'><b>{species}:</b></p>", unsafe_allow_html=True)
       st.markdown(f"<p style='font-size:20px'>🔎 Information: {info}</p>", unsafe_allow_html=True)
     
 # ---------------- Otolith ----------------
