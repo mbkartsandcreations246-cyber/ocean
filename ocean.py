@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import geopandas as gpd
 from species_data import taxonomy 
-from images import images
+from PIL import Image
 
 st.set_page_config(page_title="AI-Driven Marine Data Platform", layout="wide")
 
@@ -121,7 +121,7 @@ elif choice == "Taxonomy Explorer":
     with coll:
       st.image(img, caption=species, width=400)
     with colr:
-      st.write(f"📌 Selected Species: {species}")
+      st.write(f"###📌 **Selected Species: {species}**")
       st.write(f"🔎 Information: {info}")
     
 # ---------------- Otolith ----------------
