@@ -1,4 +1,4 @@
-# Extended taxonomy with information and image URLs
+# Extended taxonomy with information and image URL
 taxonomy = {
     "Chordata": {
         "Chondrichthyes": {
