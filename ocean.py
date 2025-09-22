@@ -115,14 +115,13 @@ elif choice == "Taxonomy Explorer":
 
     # Display species info
     info = taxonomy[phylum][cls][order][family][species]["info"]
-    image_url = taxonomy[phylum][cls][order][family][species]["image"]
     image_path = taxonomy[phylum][cls][order][family][species]["image"]
     img = Image.open(image_path)
-    st.image(img, caption=species, width=400)
+    
 
     st.success(f"📌 Selected Species: {species}")
     st.write(f"🔎 Information: {info}")
-    st.image(image_url, caption=species, use_container_width=True)
+    st.image(img, caption=species, width=400)
 
  
 
