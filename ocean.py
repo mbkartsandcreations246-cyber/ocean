@@ -121,7 +121,7 @@ elif choice == "Taxonomy Explorer":
     
     st.success(f"📌 Selected Species: {species}")
     st.write(f"🔎 Information: {info}")
-    
+    st.image(img, caption=species, use_container_width=True)
 
 # ---------------- Otolith ----------------
 elif choice == "Otolith & Morphology":
