@@ -74,7 +74,7 @@ taxonomy = {
                 "Ariidae": {
                     "Osteogeneiosus militaris (Soldier catfish)": {
                         "info": """This sea catfish is found in the Indian and western Pacific Oceans, from Pakistan to the Malay Archipelago. It inhabits marine, brackish, and freshwater environments along coasts. It can grow up to 35 cm long and is commercially caught for human consumption.""",
-                        "image": "images/
+                        "image": "images/Osteogeneiosus_militaris_(Soldier_catfish).jpg"
                     }
                 }
             },
