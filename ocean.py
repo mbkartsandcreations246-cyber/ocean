@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import geopandas as gpd
 from species_data import taxonomy 
-from PIL import Image
+from PIL import image
 
 st.set_page_config(page_title="AI-Driven Marine Data Platform", layout="wide")
 
