@@ -14,7 +14,7 @@ taxonomy = {
                 "Scoliodonidae": {
                     "Scoliodon laticaudus (Spadenose shark)": {
                         "info": """A small shark with a distinctive trowel-shaped snout, it is common in the tropical Indian and Western Pacific Oceans, including the coastal and estuarine waters of the northern Indian Ocean. It is highly productive, with large litters of 6–20 pups. It is a dominant shark in fisheries in Pakistan, northern India, and Bangladesh, and is caught for human consumption.""",
-                        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE1Ipvurki6uL3lz7e4UwpVRZr53YIxKgV1w&s"
+                        "image": "images/Scoliodon_laticaudus_(Spadenose shark).jpg"
                     }
                 }
             },
