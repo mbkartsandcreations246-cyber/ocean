@@ -3,7 +3,6 @@ import pandas as pd
 import plotly.express as px
 import geopandas as gpd
 from species_data import taxonomy 
-from PIL import Image
 
 st.set_page_config(page_title="AI-Driven Marine Data Platform", layout="wide")
 
@@ -116,12 +115,11 @@ elif choice == "Taxonomy Explorer":
     # Display species info
     info = taxonomy[phylum][cls][order][family][species]["info"]
     image_path = taxonomy[phylum][cls][order][family][species]["image"]
-    img = Image.open(image_path)
     coll, colr = st.columns(2)
     with coll:
-      st.image(img, caption=species, width=400)
+      st.image(image_path, caption=species, width=400)
     with colr:
-      st.markdown(f"<p style='font-size:26px'>📌 **Selected Species: {species}**</p>", unsafe_allow_html=True)
+      st.markdown(f"<p style='font-size:26px'><b>📌 Selected Species: {species}</b></p>", unsafe_allow_html=True)
       st.markdown(f"<p style='font-size:20px'>🔎 Information: {info}</p>", unsafe_allow_html=True)
     
 # ---------------- Otolith ----------------
