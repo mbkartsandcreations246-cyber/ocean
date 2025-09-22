@@ -117,10 +117,11 @@ elif choice == "Taxonomy Explorer":
     info = taxonomy[phylum][cls][order][family][species]["info"]
     image_path = taxonomy[phylum][cls][order][family][species]["image"]
     img = Image.open(image_path)
+    st.image(img, caption=species, width=400)
     
     st.success(f"📌 Selected Species: {species}")
     st.write(f"🔎 Information: {info}")
-    st.image(img, caption=species, width=400)
+    
 
 # ---------------- Otolith ----------------
 elif choice == "Otolith & Morphology":
