@@ -115,11 +115,12 @@ elif choice == "Taxonomy Explorer":
     # Display species info
     info = taxonomy[phylum][cls][order][family][species]["info"]
     image_path = taxonomy[phylum][cls][order][family][species]["image"]
+    st.success(f"📌 Selected Species: {species}")
     coll, colr = st.columns(2)
     with coll:
       st.image(image_path, caption=species, width=500)
     with colr:
-      st.markdown(f"<p style='font-size:26px'><b>📌 Selected Species: {species}</b></p>", unsafe_allow_html=True)
+      st.markdown(f"<p style='font-size:26px'><b>{species}</b></p>", unsafe_allow_html=True)
       st.markdown(f"<p style='font-size:20px'>🔎 Information: {info}</p>", unsafe_allow_html=True)
     
 # ---------------- Otolith ----------------
