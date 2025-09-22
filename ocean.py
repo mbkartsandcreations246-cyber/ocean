@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.express as px
 import geopandas as gpd
 from species_data import taxonomy 
+from PIL import Image
 
 st.set_page_config(page_title="AI-Driven Marine Data Platform", layout="wide")
 
@@ -115,6 +116,9 @@ elif choice == "Taxonomy Explorer":
     # Display species info
     info = taxonomy[phylum][cls][order][family][species]["info"]
     image_url = taxonomy[phylum][cls][order][family][species]["image"]
+    image_path = taxonomy[phylum][cls][order][family][species]["image"]
+    img = Image.open(image_path)
+    st.image(img, caption=species, width=400)
 
     st.success(f"📌 Selected Species: {species}")
     st.write(f"🔎 Information: {info}")
