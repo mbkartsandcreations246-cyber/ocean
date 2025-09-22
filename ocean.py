@@ -105,7 +105,6 @@ elif choice == "Visualization":
 # ---------------- Taxonomy Explorer ----------------
 elif choice == "Taxonomy Explorer":
     st.title("🧬 Taxonomy Explorer")
-    coll, colr = st.columns(2)
 
     st.write("Browse through taxonomy levels:")
     phylum = st.selectbox("Select Phylum", list(taxonomy.keys()))
@@ -118,11 +117,13 @@ elif choice == "Taxonomy Explorer":
     info = taxonomy[phylum][cls][order][family][species]["info"]
     image_path = taxonomy[phylum][cls][order][family][species]["image"]
     img = Image.open(image_path)
+    coll, colr = st.columns(2)
     with coll:
       st.image(img, caption=species, width=400)
     with colr:
       st.write(f"###📌 **Selected Species: {species}**")
       st.write(f"🔎 Information: {info}")
+      st.markdown(f"<p style='font-size:18px'>{info}</p>", unsafe_allow_html=True)
     
 # ---------------- Otolith ----------------
 elif choice == "Otolith & Morphology":
