@@ -121,9 +121,8 @@ elif choice == "Taxonomy Explorer":
     with coll:
       st.image(img, caption=species, width=400)
     with colr:
-      st.write(f"###📌 **Selected Species: {species}**")
-      st.write(f"🔎 Information: {info}")
-      st.markdown(f"<p style='font-size:18px'>{info}</p>", unsafe_allow_html=True)
+      st.markdown(f"###📌 **Selected Species: {species}**")
+      st.markdown(f"<p style='font-size:18px'>🔎 Information: {info}</p>", unsafe_allow_html=True)
     
 # ---------------- Otolith ----------------
 elif choice == "Otolith & Morphology":
