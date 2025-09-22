@@ -1,4 +1,5 @@
 # Extended taxonomy with information and image URL
+from PIL import Image
 taxonomy = {
     "Chordata": {
         "Chondrichthyes": {
