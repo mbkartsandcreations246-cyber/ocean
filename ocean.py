@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import geopandas as gpd
 from species_data import taxonomy 
-from PIL import Image
+
 
 st.set_page_config(page_title="AI-Driven Marine Data Platform", layout="wide")
 
@@ -105,6 +105,7 @@ elif choice == "Visualization":
 # ---------------- Taxonomy Explorer ----------------
 elif choice == "Taxonomy Explorer":
     st.title("🧬 Taxonomy Explorer")
+    coll, colr = st.columns(2)
 
     st.write("Browse through taxonomy levels:")
     phylum = st.selectbox("Select Phylum", list(taxonomy.keys()))
@@ -117,12 +118,12 @@ elif choice == "Taxonomy Explorer":
     info = taxonomy[phylum][cls][order][family][species]["info"]
     image_path = taxonomy[phylum][cls][order][family][species]["image"]
     img = Image.open(image_path)
-    st.image(img, caption=species, width=400)
+    with coll:
+      st.image(img, caption=species, width=400)
+    with colr:
+      st.write(f"📌 Selected Species: {species}")
+      st.write(f"🔎 Information: {info}")
     
-    st.success(f"📌 Selected Species: {species}")
-    st.write(f"🔎 Information: {info}")
-    st.image(img, caption=species, use_container_width=True)
-
 # ---------------- Otolith ----------------
 elif choice == "Otolith & Morphology":
     st.title("🐟 Otolith & Morphology Module")
