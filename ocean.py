@@ -165,8 +165,8 @@ elif choice == "eDNA Module":
         st.markdown("**Predicted Insights (Demo):**")
         for s in selected:
             rare_text = "Yes" if s["rare"] else "No"
-            st.markdown(f"-<p style='font-size:26px'><b> Species: {s['name']}</b></p>"  \n"
-                        f" <p style='font-size:20px'> EDNA: {s['sequence']}</p>"  \n"
+            st.markdown(f"-<p style='font-size:26px'><b> Species: {s['name']}</b></p>  \n"
+                        f" <p style='font-size:20px'> EDNA: {s['sequence']}</p>  \n"
                         f" <p style='font-size:20px'> Biodiversity Index: {s['biodiversity_index']}</p>  \n"
                         f" <p style='font-size:20px'> Rare Species: {rare_text}</p>  \n"
                         f" <p style='font-size:20px'> Confidence: {s['confidence']}%</p>  \n", unsafe_allow_html=True)
