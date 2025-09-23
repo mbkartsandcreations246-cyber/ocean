@@ -5,7 +5,7 @@ import geopandas as gpd
 from taxonomy_data import taxonomy 
 import time
 import random
-from oto_edna import otolithh_species, edna_species
+from oto_edna import otolith_species, edna_species
 
 st.set_page_config(page_title="AI-Driven Marine Data Platform", layout="wide")
 
