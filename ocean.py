@@ -12,7 +12,6 @@ st.set_page_config(page_title="AI-Driven Marine Data Platform", layout="wide")
 # Sidebar Navigation
 menu = [
     "Home", 
-    "Upload Data", 
     "Visualization", 
     "Taxonomy Explorer", 
     "Otolith & Morphology", 
@@ -34,18 +33,6 @@ if choice == "Home":
     - Provides visualization tools for researchers and policymakers  
     - Supports sustainable fisheries & blue economy initiatives  
     """)
-
-# ---------------- Upload Data ----------------
-elif choice == "Upload Data":
-    st.title("📂 Upload Marine Data")
-    uploaded_file = st.file_uploader("Upload TSV or GeoParquet", type=["tsv", "parquet"])
-    if uploaded_file:
-        if uploaded_file.name.endswith(".tsv"):
-            df = pd.read_csv(uploaded_file, sep="\t")
-        else:
-            df = pd.read_parquet(uploaded_file)
-        st.success("✅ Data Uploaded Successfully!")
-        st.dataframe(df.head(20))
 
 # ---------------- Visualization ----------------
 elif choice == "Visualization":
@@ -82,7 +69,7 @@ elif choice == "Visualization":
 
     #----map-----        
     st.title("🌍 Species Distribution Map")
-    st.write("This map shows demo distribution of selected species along Indian coastline.")
+    st.write("This map shows distribution of selected species along Indian coastline.")
 
      # Dummy data with species & coordinates
     sample_url = "https://raw.githubusercontent.com/mbkartsandcreations246-cyber/ocean/refs/heads/main/biodiversity.csv"
@@ -140,10 +127,10 @@ elif choice == "Otolith & Morphology":
         selected = random.sample(otolith_species,1)
         st.markdown("<p style='font-size:26px'><b>Predicted Insights (Demo):</b></p>", unsafe_allow_html=True)
         for s in selected:
-            st.markdown(f" <p style='font-size:17px; line-height:1.4;'> Likely Species: {s['name']}</p>   \n"
-                        f" <p style='font-size:17px; line-height:1.4;'> Shape Index: {s['shape_index']}</p>  \n"
-                        f" <p style='font-size:17px; line-height:1.4;'> Growth Rings: {s['growth_rings']}</p>  \n"
-                        f" <p style='font-size:17px; line-height:1.4;'> Confidence: {s['confidence']}%</p>  \n", unsafe_allow_html=True)
+            st.markdown(f" <p style='font-size:17px; line-height:1.2;'> Likely Species: {s['name']}</p>   \n"
+                        f" <p style='font-size:17px; line-height:1.2;'> Shape Index: {s['shape_index']}</p>  \n"
+                        f" <p style='font-size:17px; line-height:1.2;'> Growth Rings: {s['growth_rings']}</p>  \n"
+                        f" <p style='font-size:17px; line-height:1.2;'> Confidence: {s['confidence']}%</p>  \n", unsafe_allow_html=True)
     else:
         st.warning("Please upload the species image.")
 
@@ -151,7 +138,7 @@ elif choice == "Otolith & Morphology":
 elif choice == "eDNA Module":
     st.title("🧬 eDNA Analysis")
     # User pastes the sequence
-    edna_seq = st.text_area("Paste eDNA sequence here", height=20)
+    edna_seq = st.text_area("Paste eDNA sequence here", height=5)
 
     if edna_seq.strip():  # make sure it's not empty
     
@@ -161,11 +148,11 @@ elif choice == "eDNA Module":
 
         # Pick 3 random species
         selected = random.sample(edna_species, 1)
-        st.markdown("<p style='font-size:26px'><b> Predicted Insights (Demo):</b></p>", unsafe_allow_html=True)
+        st.markdown("<p style='font-size:26px'><b> Predicted Insights:</b></p>", unsafe_allow_html=True)
         for s in selected:
             rare_text = "Yes" if s["rare"] else "No"
-            st.markdown(f" <p style='font-size:17px; line-height:1.3;'><b> Species: {s['name']}</b></p>  \n"
-                        f" <p style='font-size:17px; line-height:1.3;'> EDNA: {s['sequence']}</p>  \n"
+            st.markdown(f" <p style='font-size:17px; line-height:1.2;'><b> Species: {s['name']}</b></p>  \n"
+                        f" <p style='font-size:17px; line-height:1.2;'> EDNA: {s['sequence']}</p>  \n"
                         f" <p style='font-size:17px; line-height:1.2;'> Biodiversity Index: {s['biodiversity_index']}</p>  \n"
                         f" <p style='font-size:17px; line-height:1.2;'> Rare Species: {rare_text}</p>  \n"
                         f" <p style='font-size:17px; line-height:1.2;'> Confidence: {s['confidence']}%</p>  \n", unsafe_allow_html=True)
@@ -179,7 +166,7 @@ elif choice == "User Guide":
     1. Upload your dataset (TSV or GeoParquet).  
     2. Explore biodiversity & ocean trends in Visualization tab.  
     3. Browse taxonomy classification.  
-    4. Upload otolith image or DNA sequence for demo analysis.  
+    4. Upload otolith image or DNA sequence for analysis.  
     
     **Future Scope**  
     - Real-time data ingestion pipelines  
