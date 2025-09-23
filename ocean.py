@@ -25,7 +25,7 @@ with st.container():
         """
         <style>
         /* Background of the whole radio container */
-        div[data-baseweb="radio"] > div {
+        div[data-baseweb="choice"] > div {
             background-color: #4CAF50;
             border-radius: 5px;
             padding: 10px;
