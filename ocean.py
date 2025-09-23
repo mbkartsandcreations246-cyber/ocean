@@ -151,14 +151,11 @@ elif choice == "Otolith & Morphology":
 # ---------------- eDNA ----------------
 elif choice == "eDNA Module":
     st.title("🧬 eDNA Analysis")
-    st.write("Paste eDNA sequence")
-
     # User pastes the sequence
-    edna_seq = st.text_area("Paste eDNA sequence here", height=150)
+    edna_seq = st.text_area("Paste eDNA sequence her", height=50)
 
     if edna_seq.strip():  # make sure it's not empty
-        st.code(edna_seq, language=None)  # display the sequence nicely
-
+    
         with st.spinner("🔬 Running AI analysis on eDNA sequence..."):
             time.sleep(2)
         st.success("✅ AI Analysis Complete!")
