@@ -2,9 +2,10 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import geopandas as gpd
-from species_data import taxonomy 
+from species_data(taxo) import taxonomy 
 import time
 import random
+from species_data(oto&edna) import otolithh_species, edna_species
 
 st.set_page_config(page_title="AI-Driven Marine Data Platform", layout="wide")
 
@@ -132,17 +133,45 @@ elif choice == "Otolith & Morphology":
     img = st.file_uploader("Upload Otolith Image", type=["jpg","png"])
     if img:
         st.image(img, caption="Uploaded Otolith Image", use_container_width=True)
-        st.success("Future AI model will analyze shape & classify species.")
+         with st.spinner("🔍 Analyzing otolith shape with AI..."):
+            time.sleep(2)
+        st.success("✅ AI Analysis Complete!")
+        
+        # Pick 3 random species
+        selected = random.sample(otolith_species,1)
+        st.markdown("**Predicted Insights (Demo):**")
+        for s in selected:
+            st.markdown(f"- Likely Species: *{s['name']}*  \n"
+                        f"  Shape Index: {s['shape_index']}  \n"
+                        f"  Growth Rings: {s['growth_rings']}  \n"
+                        f"  Confidence: {s['confidence']}%  \n")
+     else:
+            st.warning("Please upload the species image.")
 
 # ---------------- eDNA ----------------
 elif choice == "eDNA Module":
     st.title("🧬 eDNA Analysis")
-    dna = st.text_area("Paste DNA sequence:")
-    if st.button("Analyze DNA"):
-        if dna:
-            st.success("Matched Species: *Sardinella longiceps* (Demo)")
-        else:
-            st.warning("Please paste DNA sequence.")
+     st.write("Upload eDNA data")
+    
+    edna_file = st.file_uploader("Upload eDNA Data", type=["csv"])
+    
+    if edna_file:
+        df = pd.read_csv(edna_file)
+        st.dataframe(df.head())
+        
+        with st.spinner("🔬 Running AI analysis on eDNA sequences..."):
+            time.sleep(2)
+        st.success("✅ AI Analysis Complete!")
+        
+        # Pick 3 random species
+        selected = random.sample(edna_species, 3)
+        st.markdown("**Predicted Insights (Demo):**")
+        for s in selected:
+            rare_text = "Yes" if s["rare"] else "No"
+            st.markdown(f"- Species: *{s['name']}*  \n"
+                        f"  Biodiversity Index: {s['biodiversity_index']}  \n"
+                        f"  Rare Species: {rare_text}  \n"
+                        f"  Confidence: {s['confidence']}%  \n")
 
 # ---------------- User Guide ----------------
 elif choice == "User Guide":
