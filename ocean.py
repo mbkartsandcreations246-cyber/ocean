@@ -19,7 +19,7 @@ menu = [
     "User Guide"
 ]
 with st.container():
-    choice = st.radio("Navigate", menu,horizontal=True)
+    choice = st.radio("Navigate", menu,horizontal=True,use_container_width=True)
 
 # ---------------- Home ----------------
 if choice == "Home":
