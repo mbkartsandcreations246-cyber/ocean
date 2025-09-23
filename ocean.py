@@ -22,19 +22,36 @@ menu = [
 with st.container():
     choice = st.radio("Navigate", menu,horizontal=True)
     st.markdown(
-    """
-    <style>
-    div[data-baseweb="menu"] {
-        background-color: #4CAF50;
-        border-radius:5px;
-        padding:5px;
-        width:100%;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+        """
+        <style>
+        /* Background of the whole radio container */
+        div[data-baseweb="radio"] > div {
+            background-color: #4CAF50;
+            border-radius: 5px;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;  /* spread buttons across */
+        }
 
+        /* Style individual buttons */
+        div[data-baseweb="radio"] span[data-baseweb="radio-button"] label {
+            color: white;
+            font-weight: bold;
+            padding: 8px 12px;
+            background-color: #388E3C;
+            border-radius: 5px;
+            margin: 2px;
+        }
+
+        /* Selected button style */
+        div[data-baseweb="radio"] span[data-baseweb="radio-button"] input:checked + label {
+            background-color: #1B5E20;
+            color: white;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
     
 # ---------------- Home ----------------
 if choice == "Home":
