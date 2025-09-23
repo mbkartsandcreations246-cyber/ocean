@@ -18,7 +18,10 @@ menu = [
     "eDNA Module",  
     "User Guide"
 ]
-st.markdown(
+
+with st.container():
+    choice = st.radio("Navigate", menu,horizontal=True)
+    st.markdown(
     """
     <style>
     div[data-baseweb="menu"] {
@@ -32,8 +35,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-with st.container():
-    choice = st.radio("Navigate", menu,horizontal=True)
     
 # ---------------- Home ----------------
 if choice == "Home":
