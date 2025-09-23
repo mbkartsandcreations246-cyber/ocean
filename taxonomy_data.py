@@ -7,7 +7,7 @@ taxonomy = {
                 "Carcharhinidae": {
                     "Carcharhinus sorrah (Spot-tail shark)": {
                         "info": """
-                        - This small, spindle-shaped shark is found in the tropical Indo-West Pacific. It lives on continental and insular shelves, often near reefs.
+                        * This small, spindle-shaped shark is found in the tropical Indo-West Pacific. It lives on continental and insular shelves, often near reefs.
                         - It feeds on bony fishes, cephalopods, and crustaceans.
                         - The species is viviparous, giving birth to live young. It is caught by small-scale commercial fisheries for food and its fins.
 
