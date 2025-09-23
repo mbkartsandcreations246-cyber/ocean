@@ -21,15 +21,11 @@ menu = [
 
 
 with st.container():
+    choice=st.radio("**navigation**",menu,horizontal=True)
     st.markdown(
         """
     <div style="background-color:#4CAF50; padding:10px; border-radius:5px; display:flex; justify-content:space-around;">
-        <button id="Home" style="flex:1; margin:2px; padding:10px; background-color:#1B5E20; color:white; border:none; border-radius:5px;">Home</button>
-        <button id="Visualization" style="flex:1; margin:2px; padding:10px; background-color:#388E3C; color:white; border:none; border-radius:5px;">Visualization</button>
-        <button id="Taxonomy Explorer" style="flex:1; margin:2px; padding:10px; background-color:#388E3C; color:white; border:none; border-radius:5px;">Taxonomy Explorer</button>
-        <button id="Otolith & Morphology" style="flex:1; margin:2px; padding:10px; background-color:#388E3C; color:white; border:none; border-radius:5px;">Otolith & Morphology</button>
-        <button id="eDNA Module" style="flex:1; margin:2px; padding:10px; background-color:#388E3C; color:white; border:none; border-radius:5px;">eDNA Module</button>
-        <button id="User Guide" style="flex:1; margin:2px; padding:10px; background-color:#388E3C; color:white; border:none; border-radius:5px;">User Guide</button>
+        <button id="" style="flex:1; margin:2px; padding:10px; background-color:#388E3C; color:white; border:none; border-radius:5px;">choice</button>
     </div>
     """,unsafe_allow_html=True)
     
