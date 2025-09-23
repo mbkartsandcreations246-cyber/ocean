@@ -23,18 +23,16 @@ choice = "Home"
 
 with st.container():
     st.markdown(
-        "<div style='background-color:#00008B; padding:30px; border-radius:5px; display:flex; justify-content:space-around;'>", 
-        unsafe_allow_html=True
-    )
-
-    # Create buttons in columns
-    cols = st.columns(len(menu))
-    choice = None
-    for i, item in enumerate(menu):
-        if cols[i].button(item):
-            choice = item
-
-    st.markdown("</div>", unsafe_allow_html=True)
+        """
+    <div style="background-color:#4CAF50; padding:10px; border-radius:5px; display:flex; justify-content:space-around;">
+        <button id="Home" style="flex:1; margin:2px; padding:10px; background-color:#1B5E20; color:white; border:none; border-radius:5px;">Home</button>
+        <button id="Visualization" style="flex:1; margin:2px; padding:10px; background-color:#388E3C; color:white; border:none; border-radius:5px;">Visualization</button>
+        <button id="Taxonomy Explorer" style="flex:1; margin:2px; padding:10px; background-color:#388E3C; color:white; border:none; border-radius:5px;">Taxonomy Explorer</button>
+        <button id="Otolith & Morphology" style="flex:1; margin:2px; padding:10px; background-color:#388E3C; color:white; border:none; border-radius:5px;">Otolith & Morphology</button>
+        <button id="eDNA Module" style="flex:1; margin:2px; padding:10px; background-color:#388E3C; color:white; border:none; border-radius:5px;">eDNA Module</button>
+        <button id="User Guide" style="flex:1; margin:2px; padding:10px; background-color:#388E3C; color:white; border:none; border-radius:5px;">User Guide</button>
+    </div>
+    """,unsafe_allow_html=True)
     
 # ---------------- Home ----------------
 if choice == "Home":
@@ -122,9 +120,11 @@ elif choice == "Taxonomy Explorer":
     info = taxonomy[phylum][cls][order][family][species]["info"]
     image_path = taxonomy[phylum][cls][order][family][species]["image"]
     st.success(f"📌 Selected Species: {species}")
+
+    
     coll, colr = st.columns(2)
     with coll:
-      st.image(image_path, caption=species, width=400)
+      st.image(image_path, caption=species, width=600)
     with colr:
       st.markdown(f"<p style='font-size:26px'><b>{species}:</b></p>", unsafe_allow_html=True)
       st.markdown(f"<p style='font-size:17px'>🔎 Information: {info}</p>", unsafe_allow_html=True)
