@@ -20,38 +20,19 @@ menu = [
 ]
 
 with st.container():
-    choice = st.radio("<p style='font-size:26px'><b> Navigate </b></p>", unsafe_allow_html=True, menu,horizontal=True)
     st.markdown(
-        """
-        <style>
-        /* Background of the whole radio container */
-        div[data-baseweb="radio"] > div {
-            background-color: #4CAF50;
-            border-radius: 5px;
-            padding: 10px;
-            display: flex;
-            justify-content: space-around;  /* spread buttons across */
-        }
-
-        /* Style individual buttons */
-        div[data-baseweb="radio"] span[data-baseweb="radio-button"] label {
-            color: white;
-            font-weight: bold;
-            padding: 8px 12px;
-            background-color: #388E3C;
-            border-radius: 5px;
-            margin: 2px;
-        }
-
-        /* Selected button style */
-        div[data-baseweb="radio"] span[data-baseweb="radio-button"] input:checked + label {
-            background-color: #1B5E20;
-            color: white;
-        }
-        </style>
-        """,
+        "<div style='background-color:#4CAF50; padding:10px; border-radius:5px; display:flex; justify-content:space-around;'>", 
         unsafe_allow_html=True
     )
+
+    # Create buttons in columns
+    cols = st.columns(len(menu))
+    choice = None
+    for i, item in enumerate(menu):
+        if cols[i].button(item):
+            choice = item
+
+    st.markdown("</div>", unsafe_allow_html=True)
     
 # ---------------- Home ----------------
 if choice == "Home":
