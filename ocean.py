@@ -18,10 +18,12 @@ menu = [
     "eDNA Module",  
     "User Guide"
 ]
+
 choice = "Home"
+
 with st.container():
     st.markdown(
-        "<div style='background-color:#00008B; padding:10px; border-radius:15px; display:flex; justify-content:space-around;'>", 
+        "<div style='background-color:#00008B; padding:30px; border-radius:5px; display:flex; justify-content:space-around;'>", 
         unsafe_allow_html=True
     )
 
