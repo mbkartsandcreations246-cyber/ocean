@@ -21,7 +21,7 @@ menu = [
 
 with st.container():
     st.markdown(
-        "<div style='background-color:#4CAF50; padding:10px; border-radius:5px; display:flex; justify-content:space-around;'>", 
+        "<div style='background-color:#00008B; padding:10px; border-radius:5px; display:flex; justify-content:space-around;'>", 
         unsafe_allow_html=True
     )
 
