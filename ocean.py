@@ -2,10 +2,10 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import geopandas as gpd
-from species_data(taxo) import taxonomy 
+from taxonomy_data import taxonomy 
 import time
 import random
-from species_data(oto&edna) import otolithh_species, edna_species
+from oto_edna import otolithh_species, edna_species
 
 st.set_page_config(page_title="AI-Driven Marine Data Platform", layout="wide")
 
