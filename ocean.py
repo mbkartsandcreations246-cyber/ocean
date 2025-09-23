@@ -18,7 +18,7 @@ menu = [
     "eDNA Module",  
     "User Guide"
 ]
-choice = st.sidebar.radio("Navigate", menu)
+choice = st.radio("Navigate", menu)
 
 # ---------------- Home ----------------
 if choice == "Home":
@@ -163,10 +163,9 @@ elif choice == "User Guide":
     st.title("📖 User Manual")
     st.markdown("""
     **Steps to Use Platform**  
-    1. Upload your dataset (TSV or GeoParquet).  
-    2. Explore biodiversity & ocean trends in Visualization tab.  
-    3. Browse taxonomy classification.  
-    4. Upload otolith image or DNA sequence for analysis.  
+    1. Explore biodiversity & ocean trends in Visualization tab.  
+    2. Browse taxonomy classification.  
+    3. Upload otolith image or eDNA sequence for analysis.  
     
     **Future Scope**  
     - Real-time data ingestion pipelines  
