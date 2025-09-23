@@ -124,7 +124,7 @@ elif choice == "Taxonomy Explorer":
       st.image(image_path, caption=species, width=400)
     with colr:
       st.markdown(f"<p style='font-size:26px'><b>{species}:</b></p>", unsafe_allow_html=True)
-      st.markdown(f"<p style='font-size:20px'>🔎 Information: {info}</p>", unsafe_allow_html=True)
+      st.markdown(f"<p style='font-size:17px; line-height:1.4;'>🔎 Information: {info}</p>", unsafe_allow_html=True)
     
 # ---------------- Otolith ----------------
 elif choice == "Otolith & Morphology":
@@ -140,10 +140,10 @@ elif choice == "Otolith & Morphology":
         selected = random.sample(otolith_species,1)
         st.markdown("<p style='font-size:26px'><b>Predicted Insights (Demo):</b></p>", unsafe_allow_html=True)
         for s in selected:
-            st.markdown(f"-<p style='font-size:17px'> Likely Species: {s['name']}</p>   \n"
-                        f" <p style='font-size:17px'> Shape Index: {s['shape_index']}</p>  \n"
-                        f" <p style='font-size:17px'> Growth Rings: {s['growth_rings']}</p>  \n"
-                        f" <p style='font-size:17px'> Confidence: {s['confidence']}%</p>  \n", unsafe_allow_html=True)
+            st.markdown(f" <p style='font-size:17px; line-height:1.4;'> Likely Species: {s['name']}</p>   \n"
+                        f" <p style='font-size:17px; line-height:1.4;'> Shape Index: {s['shape_index']}</p>  \n"
+                        f" <p style='font-size:17px; line-height:1.4;'> Growth Rings: {s['growth_rings']}</p>  \n"
+                        f" <p style='font-size:17px; line-height:1.4;'> Confidence: {s['confidence']}%</p>  \n", unsafe_allow_html=True)
     else:
         st.warning("Please upload the species image.")
 
@@ -151,7 +151,7 @@ elif choice == "Otolith & Morphology":
 elif choice == "eDNA Module":
     st.title("🧬 eDNA Analysis")
     # User pastes the sequence
-    edna_seq = st.text_area("Paste eDNA sequence here", height=50)
+    edna_seq = st.text_area("Paste eDNA sequence here", height=20)
 
     if edna_seq.strip():  # make sure it's not empty
     
@@ -165,10 +165,10 @@ elif choice == "eDNA Module":
         for s in selected:
             rare_text = "Yes" if s["rare"] else "No"
             st.markdown(f"-<p style='font-size:26px'><b> Species: {s['name']}</b></p>  \n"
-                        f" <p style='font-size:17px'> EDNA: {s['sequence']}</p>  \n"
-                        f" <p style='font-size:17px'> Biodiversity Index: {s['biodiversity_index']}</p>  \n"
-                        f" <p style='font-size:17px'> Rare Species: {rare_text}</p>  \n"
-                        f" <p style='font-size:17px'> Confidence: {s['confidence']}%</p>  \n", unsafe_allow_html=True)
+                        f" <p style='font-size:17px; line-height:1.4;'> EDNA: {s['sequence']}</p>  \n"
+                        f" <p style='font-size:17px; line-height:1.4;'> Biodiversity Index: {s['biodiversity_index']}</p>  \n"
+                        f" <p style='font-size:17px; line-height:1.4;'> Rare Species: {rare_text}</p>  \n"
+                        f" <p style='font-size:17px; line-height:1.4;'> Confidence: {s['confidence']}%</p>  \n", unsafe_allow_html=True)
     else:
         st.warning("Please enter the edna sequence")
 # ---------------- User Guide ----------------
