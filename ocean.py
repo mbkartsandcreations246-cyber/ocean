@@ -18,9 +18,7 @@ menu = [
     "eDNA Module",  
     "User Guide"
 ]
-with st.container():
-    choice = st.radio("Navigate", menu,horizontal=True)
-    st.markdown(
+st.markdown(
     """
     <style>
     div[data-baseweb="tab-list"] {
@@ -34,6 +32,9 @@ with st.container():
     unsafe_allow_html=True
 )
 
+with st.container():
+    choice = st.radio("Navigate", menu,horizontal=True)
+    
 # ---------------- Home ----------------
 if choice == "Home":
     st.title("🌊 AI-Driven Unified Data Platform for Marine Biodiversity")
