@@ -124,7 +124,7 @@ elif choice == "Taxonomy Explorer":
       st.image(image_path, caption=species, width=400)
     with colr:
       st.markdown(f"<p style='font-size:26px'><b>{species}:</b></p>", unsafe_allow_html=True)
-      st.markdown(f"<p style='font-size:17px; line-height:1.4;'>🔎 Information: {info}</p>", unsafe_allow_html=True)
+      st.markdown(f"<p style='font-size:17px'>🔎 Information: {info}</p>", unsafe_allow_html=True)
     
 # ---------------- Otolith ----------------
 elif choice == "Otolith & Morphology":
@@ -161,10 +161,10 @@ elif choice == "eDNA Module":
 
         # Pick 3 random species
         selected = random.sample(edna_species, 1)
-        st.markdown("**Predicted Insights (Demo):**")
+        st.markdown("<p style='font-size:26px'><b> Predicted Insights (Demo):</b></p>")
         for s in selected:
             rare_text = "Yes" if s["rare"] else "No"
-            st.markdown(f"-<p style='font-size:26px'><b> Species: {s['name']}</b></p>  \n"
+            st.markdown(f" <p style='font-size:17px; line-height:1.4;'><b> Species: {s['name']}</b></p>  \n"
                         f" <p style='font-size:17px; line-height:1.4;'> EDNA: {s['sequence']}</p>  \n"
                         f" <p style='font-size:17px; line-height:1.4;'> Biodiversity Index: {s['biodiversity_index']}</p>  \n"
                         f" <p style='font-size:17px; line-height:1.4;'> Rare Species: {rare_text}</p>  \n"
