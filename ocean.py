@@ -18,7 +18,8 @@ menu = [
     "eDNA Module",  
     "User Guide"
 ]
-choice = st.selectbox("Navigate", menu)
+with st.container():
+    choice = st.radio("Navigate", menu,horizontal=True)
 
 # ---------------- Home ----------------
 if choice == "Home":
