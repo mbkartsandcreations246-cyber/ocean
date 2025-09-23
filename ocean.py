@@ -166,9 +166,9 @@ elif choice == "eDNA Module":
             rare_text = "Yes" if s["rare"] else "No"
             st.markdown(f" <p style='font-size:17px; line-height:1.3;'><b> Species: {s['name']}</b></p>  \n"
                         f" <p style='font-size:17px; line-height:1.3;'> EDNA: {s['sequence']}</p>  \n"
-                        f" <p style='font-size:17px; line-height:1.4;'> Biodiversity Index: {s['biodiversity_index']}</p>  \n"
-                        f" <p style='font-size:17px; line-height:1.4;'> Rare Species: {rare_text}</p>  \n"
-                        f" <p style='font-size:17px; line-height:1.4;'> Confidence: {s['confidence']}%</p>  \n", unsafe_allow_html=True)
+                        f" <p style='font-size:17px; line-height:1.2;'> Biodiversity Index: {s['biodiversity_index']}</p>  \n"
+                        f" <p style='font-size:17px; line-height:1.2;'> Rare Species: {rare_text}</p>  \n"
+                        f" <p style='font-size:17px; line-height:1.2;'> Confidence: {s['confidence']}%</p>  \n", unsafe_allow_html=True)
     else:
         st.warning("Please enter the edna sequence")
 # ---------------- User Guide ----------------
