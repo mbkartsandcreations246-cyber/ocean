@@ -145,8 +145,8 @@ elif choice == "Otolith & Morphology":
                         f"  Shape Index: {s['shape_index']}  \n"
                         f"  Growth Rings: {s['growth_rings']}  \n"
                         f"  Confidence: {s['confidence']}%  \n")
-     else:
-            st.warning("Please upload the species image.")
+    else:
+        st.warning("Please upload the species image.")
 
 # ---------------- eDNA ----------------
 elif choice == "eDNA Module":
@@ -173,7 +173,7 @@ elif choice == "eDNA Module":
                         f"  Rare Species: {rare_text}  \n"
                         f"  Confidence: {s['confidence']}%  \n")
     else:
-            st.warning("Please enter the edna sequence")
+        st.warning("Please enter the edna sequence")
 # ---------------- User Guide ----------------
 elif choice == "User Guide":
     st.title("📖 User Manual")
