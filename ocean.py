@@ -22,11 +22,14 @@ with st.container():
     choice = st.radio("Navigate", menu,horizontal=True)
     st.markdown(
     """
-    <div style="display:flex; justify-content:space-between; background-color:#4CAF50; padding:10px; border-radius:5px;">
-        <button style="flex:1; margin:2px; padding:10px; background-color:#ffffff; border:none; border-radius:5px;">Otolith</button>
-        <button style="flex:1; margin:2px; padding:10px; background-color:#ffffff; border:none; border-radius:5px;">eDNA</button>
-        <button style="flex:1; margin:2px; padding:10px; background-color:#ffffff; border:none; border-radius:5px;">Species Info</button>
-    </div>
+    <style>
+    div[data-baseweb="tab-list"] {
+        background-color: #4CAF50;
+        border-radius:5px;
+        padding:5px;
+        width:100%;
+    }
+    </style>
     """,
     unsafe_allow_html=True
 )
