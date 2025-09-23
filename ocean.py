@@ -151,20 +151,20 @@ elif choice == "Otolith & Morphology":
 # ---------------- eDNA ----------------
 elif choice == "eDNA Module":
     st.title("🧬 eDNA Analysis")
-     st.write("Upload eDNA data")
-    
-    edna_file = st.file_uploader("Upload eDNA Data", type=["csv"])
-    
-    if edna_file:
-        df = pd.read_csv(edna_file)
-        st.dataframe(df.head())
-        
-        with st.spinner("🔬 Running AI analysis on eDNA sequences..."):
+    st.write("Paste eDNA sequence")
+
+    # User pastes the sequence
+    edna_seq = st.text_area("Paste eDNA sequence here", height=150)
+
+    if edna_seq.strip():  # make sure it's not empty
+        st.code(edna_seq, language=None)  # display the sequence nicely
+
+        with st.spinner("🔬 Running AI analysis on eDNA sequence..."):
             time.sleep(2)
         st.success("✅ AI Analysis Complete!")
-        
+
         # Pick 3 random species
-        selected = random.sample(edna_species, 3)
+        selected = random.sample(edna_species, 1)
         st.markdown("**Predicted Insights (Demo):**")
         for s in selected:
             rare_text = "Yes" if s["rare"] else "No"
@@ -172,7 +172,8 @@ elif choice == "eDNA Module":
                         f"  Biodiversity Index: {s['biodiversity_index']}  \n"
                         f"  Rare Species: {rare_text}  \n"
                         f"  Confidence: {s['confidence']}%  \n")
-
+    else:
+            st.warning("Please enter the edna sequence")
 # ---------------- User Guide ----------------
 elif choice == "User Guide":
     st.title("📖 User Manual")
