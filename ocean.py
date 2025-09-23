@@ -20,12 +20,12 @@ menu = [
 ]
 
 with st.container():
-    choice = st.radio("Navigate", menu,horizontal=True)
+    choice = st.radio("<p style='font-size:26px'><b> Navigate </b></p>", unsafe_allow_html=True, menu,horizontal=True)
     st.markdown(
         """
         <style>
         /* Background of the whole radio container */
-        div[data-baseweb="choice"] > div {
+        div[data-baseweb="radio"] > div {
             background-color: #4CAF50;
             border-radius: 5px;
             padding: 10px;
