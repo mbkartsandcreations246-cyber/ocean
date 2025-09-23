@@ -19,7 +19,6 @@ menu = [
     "User Guide"
 ]
 
-choice = "Home"
 
 with st.container():
     st.markdown(
