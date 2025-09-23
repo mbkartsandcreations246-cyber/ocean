@@ -21,7 +21,7 @@ menu = [
 st.markdown(
     """
     <style>
-    div[data-baseweb="tab-list"] {
+    div[data-baseweb="menu"] {
         background-color: #4CAF50;
         border-radius:5px;
         padding:5px;
