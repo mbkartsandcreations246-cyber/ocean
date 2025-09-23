@@ -133,7 +133,7 @@ elif choice == "Otolith & Morphology":
     img = st.file_uploader("Upload Otolith Image", type=["jpg","png"])
     if img:
         st.image(img, caption="Uploaded Otolith Image", use_container_width=True)
-         with st.spinner("🔍 Analyzing otolith shape with AI..."):
+        with st.spinner("🔍 Analyzing otolith shape with AI..."):
             time.sleep(2)
         st.success("✅ AI Analysis Complete!")
         
