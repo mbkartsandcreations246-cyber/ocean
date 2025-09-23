@@ -9,11 +9,41 @@ otolith_species = [
     {"name": "Epinephelus coioides", "shape_index": 0.78, "growth_rings": 7, "confidence": 85},
 ]
 
-# eDNA species list
+# eDNA species list with simulated sequences
 edna_species = [
-    {"name": "Chelonodon patoca", "biodiversity_index": 3.45, "rare": True, "confidence": 88},
-    {"name": "Sphyraena barracuda", "biodiversity_index": 3.12, "rare": False, "confidence": 91},
-    {"name": "Trichiurus lepturus", "biodiversity_index": 3.60, "rare": False, "confidence": 89},
-    {"name": "Nemipterus japonicus", "biodiversity_index": 3.30, "rare": True, "confidence": 87},
-    {"name": "Rastrelliger kanagurta", "biodiversity_index": 3.50, "rare": False, "confidence": 92},
+    {
+        "name": "Salmo salar (Atlantic Salmon)",
+        "sequence": "ATCGTAGCTAGCTAGCATGACTAGCTAGCATGACTAGCTAGCATGCTAGCTAGCTAGC",
+        "biodiversity_index": 3.45,
+        "rare": True,
+        "confidence": 88
+    },
+    {
+        "name": "Oncorhynchus mykiss (Rainbow Trout)",
+        "sequence": "GCTAGCATCGATCGTACGATCGTAGCTAGCTACGATCGTAGCTAGCTACGATCGT",
+        "biodiversity_index": 3.12,
+        "rare": False,
+        "confidence": 91
+    },
+    {
+        "name": "Thunnus albacares (Yellowfin Tuna)",
+        "sequence": "CGTAGCTAGCATGCTAGCTAGCTAGCATGACGATCGTAGCTAGCATGCTAGCTAGC",
+        "biodiversity_index": 3.60,
+        "rare": False,
+        "confidence": 89
+    },
+    {
+        "name": "Chelonodon patoca (Milk-spotted Puffer)",
+        "sequence": "TAGCTAGCATGCTAGCTAGCATGACTAGCTAGCATGCTAGCTAGCATGCTAGC",
+        "biodiversity_index": 3.30,
+        "rare": True,
+        "confidence": 87
+    },
+    {
+        "name": "Sphyraena barracuda (Great Barracuda)",
+        "sequence": "GATCGTAGCTAGCTACGATCGTAGCTAGCTACGATCGTAGCTAGCTAGCATG",
+        "biodiversity_index": 3.50,
+        "rare": False,
+        "confidence": 92
+    }
 ]
