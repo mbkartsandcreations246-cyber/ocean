@@ -23,11 +23,38 @@ menu = [
 with st.container():
     choice=st.radio("**navigation**",menu,horizontal=True)
     st.markdown(
-        """
-    <div style="background-color:#4CAF50; padding:10px; border-radius:5px; display:flex; justify-content:space-around;">
-        <button id="" style="flex:1; margin:2px; padding:10px; background-color:#388E3C; color:white; border:none; border-radius:5px;">choice</button>
-    </div>
-    """,unsafe_allow_html=True)
+    """
+    <style>
+    /* Container background */
+    div[data-baseweb="radio"] > div {
+        background-color: #4CAF50;
+        border-radius: 8px;
+        padding: 5px;
+        display: flex;
+        justify-content: space-around; /* spread buttons */
+        width: 100%;
+    }
+
+    /* Unselected buttons */
+    div[data-baseweb="radio"] span[data-baseweb="radio-button"] label {
+        background-color: #388E3C;
+        color: white;
+        font-weight: bold;
+        padding: 8px 12px;
+        border-radius: 5px;
+        margin: 2px;
+        cursor: pointer;
+    }
+
+    /* Selected button */
+    div[data-baseweb="radio"] span[data-baseweb="radio-button"] input:checked + label {
+        background-color: #1B5E20;
+        color: white;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
     
 # ---------------- Home ----------------
 if choice == "Home":
@@ -115,11 +142,10 @@ elif choice == "Taxonomy Explorer":
     info = taxonomy[phylum][cls][order][family][species]["info"]
     image_path = taxonomy[phylum][cls][order][family][species]["image"]
     st.success(f"📌 Selected Species: {species}")
-
-    
+    st.write("##")
     coll, colr = st.columns(2)
     with coll:
-      st.image(image_path, caption=species, width=600)
+      st.image(image_path, caption=species, width=550)
     with colr:
       st.markdown(f"<p style='font-size:26px'><b>{species}:</b></p>", unsafe_allow_html=True)
       st.markdown(f"<p style='font-size:17px'>🔎 Information: {info}</p>", unsafe_allow_html=True)
