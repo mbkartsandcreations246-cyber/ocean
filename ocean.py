@@ -129,7 +129,6 @@ elif choice == "Taxonomy Explorer":
 # ---------------- Otolith ----------------
 elif choice == "Otolith & Morphology":
     st.title("🐟 Otolith & Morphology Module")
-    st.write("Upload otolith image for visualization (Prototype Demo).")
     img = st.file_uploader("Upload Otolith Image", type=["jpg","png"])
     if img:
         st.image(img, caption="Uploaded Otolith Image", use_container_width=True)
@@ -139,12 +138,12 @@ elif choice == "Otolith & Morphology":
         
         # Pick 3 random species
         selected = random.sample(otolith_species,1)
-        st.markdown("**Predicted Insights (Demo):**")
+        st.markdown("<p style='font-size:26px'><b>Predicted Insights (Demo):</b></p>", unsafe_allow_html=True)
         for s in selected:
-            st.markdown(f"- Likely Species: *{s['name']}*  \n"
-                        f"  Shape Index: {s['shape_index']}  \n"
-                        f"  Growth Rings: {s['growth_rings']}  \n"
-                        f"  Confidence: {s['confidence']}%  \n")
+            st.markdown(f"-<p style='font-size:17px'> Likely Species: {s['name']}</p>   \n"
+                        f" <p style='font-size:17px'> Shape Index: {s['shape_index']}</p>  \n"
+                        f" <p style='font-size:17px'> Growth Rings: {s['growth_rings']}</p>  \n"
+                        f" <p style='font-size:17px'> Confidence: {s['confidence']}%</p>  \n", unsafe_allow_html=True)
     else:
         st.warning("Please upload the species image.")
 
@@ -152,7 +151,7 @@ elif choice == "Otolith & Morphology":
 elif choice == "eDNA Module":
     st.title("🧬 eDNA Analysis")
     # User pastes the sequence
-    edna_seq = st.text_area("Paste eDNA sequence her", height=50)
+    edna_seq = st.text_area("Paste eDNA sequence here", height=50)
 
     if edna_seq.strip():  # make sure it's not empty
     
@@ -166,10 +165,10 @@ elif choice == "eDNA Module":
         for s in selected:
             rare_text = "Yes" if s["rare"] else "No"
             st.markdown(f"-<p style='font-size:26px'><b> Species: {s['name']}</b></p>  \n"
-                        f" <p style='font-size:20px'> EDNA: {s['sequence']}</p>  \n"
-                        f" <p style='font-size:20px'> Biodiversity Index: {s['biodiversity_index']}</p>  \n"
-                        f" <p style='font-size:20px'> Rare Species: {rare_text}</p>  \n"
-                        f" <p style='font-size:20px'> Confidence: {s['confidence']}%</p>  \n", unsafe_allow_html=True)
+                        f" <p style='font-size:17px'> EDNA: {s['sequence']}</p>  \n"
+                        f" <p style='font-size:17px'> Biodiversity Index: {s['biodiversity_index']}</p>  \n"
+                        f" <p style='font-size:17px'> Rare Species: {rare_text}</p>  \n"
+                        f" <p style='font-size:17px'> Confidence: {s['confidence']}%</p>  \n", unsafe_allow_html=True)
     else:
         st.warning("Please enter the edna sequence")
 # ---------------- User Guide ----------------
