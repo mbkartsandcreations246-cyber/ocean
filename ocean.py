@@ -17,6 +17,26 @@ st.markdown("""
     [data-testid="stHeader"] * {
         color: white !important;
     }
+    /* Sidebar */
+        section[data-testid="stSidebar"] {
+            background: linear-gradient(to bottom, #001f3f, #003366); /* dark blue gradient */
+            color: white;
+        }
+
+        /* Sidebar text */
+        section[data-testid="stSidebar"] .css-1v3fvcr {
+            color: white !important;
+        }
+
+        /* Sidebar headings */
+        section[data-testid="stSidebar"] h2 {
+            color: #66b2ff !important; /* light ocean blue headings */
+        }
+
+        /* Sidebar labels */
+        section[data-testid="stSidebar"] label {
+            color: #cce6ff !important;
+        }
     </style>
 """, unsafe_allow_html=True)
 
