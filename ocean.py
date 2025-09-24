@@ -118,7 +118,7 @@ elif choice == "Visualization":
             lat="latitude", 
             lon="longitude", 
             hover_name="species",
-            color="Species",
+            color="species",
             zoom=4,                   
             height=600,
         )
