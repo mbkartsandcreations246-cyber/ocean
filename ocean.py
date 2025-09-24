@@ -30,7 +30,7 @@ menu = [
 
 
 with st.container():
-    choice=st.sidebar.radio("**navigation**",menu)
+    choice=st.sidebar.radio("**Navigation**",menu)
     st.markdown(
     """
     <style>
