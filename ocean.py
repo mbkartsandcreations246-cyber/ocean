@@ -122,7 +122,15 @@ elif choice == "Visualization":
             zoom=4,                   
             height=600,
         )
-        fig.update_layout(mapbox_style="open-street-map")  # free base map
+        fig.update_layout(
+    mapbox_style="open-street-map",
+    legend=dict(
+        orientation="h",
+        yanchor="bottom", y=-0.2,   # push legend below map
+        xanchor="center", x=0.5,
+        font=dict(size=12)
+    )
+)
         fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
         fig.update_traces(marker=dict(size=25, opacity=0.6))
   
