@@ -15,11 +15,6 @@ st.markdown("""
         header[data-testid="stHeader"] {
             background: linear-gradient(to right, #001f3f, #003366);
         }
-        
-        /* Main background */
-        .stApp {
-            background: #f4f9ff; /* Light oceanic background */
-        }
     </style>
 """, unsafe_allow_html=True)
 
