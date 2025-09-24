@@ -16,11 +16,6 @@ st.markdown("""
             background: linear-gradient(to right, #001f3f, #003366);
         }
         
-        /* Ensure title/icons show properly */
-        h1, h2, h3 {
-            color: white !important;
-        }
-        
         /* Main background */
         .stApp {
             background: #f4f9ff; /* Light oceanic background */
@@ -46,7 +41,7 @@ with st.container():
     <style>
         /* Sidebar background */
         section[data-testid="stSidebar"] {
-            background: linear-gradient(to bottom, #001f3f, #003366);
+            background: linear-gradient(to bottom, #013366, #003366);
             color: white;
         }
 
