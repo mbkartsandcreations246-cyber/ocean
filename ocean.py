@@ -118,6 +118,7 @@ elif choice == "Visualization":
             lat="latitude", 
             lon="longitude", 
             hover_name="species",
+            color="Species",
             zoom=4,                   
             height=600,
         )
@@ -145,7 +146,7 @@ elif choice == "Taxonomy Explorer":
     st.write("##")
     coll, colr = st.columns(2)
     with coll:
-      st.image(image_path, caption=species, width=550)
+      st.image(image_path, caption=species, use_container_width=True)
     with colr:
       st.markdown(f"<p style='font-size:26px'><b>{species}:</b></p>", unsafe_allow_html=True)
       st.markdown(f"<p style='font-size:17px'>🔎 Information: {info}</p>", unsafe_allow_html=True)
