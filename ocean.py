@@ -11,9 +11,9 @@ st.set_page_config(page_title="AI-Driven Marine Data Platform", layout="wide")
 
 st.markdown("""
     <style>
-    /* Top navigation / toolbar area */
+    /* Top navigation / toolbar */
         header[data-testid="stHeader"] {
-            background: linear-gradient(to right, #001f3f, #003366); /* oceanic dark blue */
+            background: linear-gradient(to right, #001f3f, #003366);
         }
 
         /* Sidebar background */
@@ -22,23 +22,44 @@ st.markdown("""
             color: white;
         }
 
-        /* Sidebar titles and text */
+        /* Sidebar text */
         section[data-testid="stSidebar"] h1,
         section[data-testid="stSidebar"] h2,
         section[data-testid="stSidebar"] h3,
         section[data-testid="stSidebar"] p,
         section[data-testid="stSidebar"] label {
-            color: #cce6ff !important; /* light ocean blue */
+            color: #cce6ff !important;
         }
 
-        /* Radio buttons */
+        /* Hide radio circles */
+        section[data-testid="stSidebar"] div[role="radiogroup"] input {
+            display: none;
+        }
+
+        /* Radio buttons styled as smooth tabs */
         section[data-testid="stSidebar"] div[role="radiogroup"] > label {
-            background: rgba(255, 255, 255, 0.1); /* subtle background */
-            color: #ffffff !important;  /* white text */
-            border-radius: 6px;
-            padding: 4px 8px;
-            margin-bottom: 4px;
+            background: transparent;
+            color: #cce6ff !important;
+            border-radius: 8px;
+            padding: 8px 14px;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
             display: block;
+        }
+
+        /* Hover effect */
+        section[data-testid="stSidebar"] div[role="radiogroup"] > label:hover {
+            background: rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+        }
+
+        /* Selected tab effect */
+        section[data-testid="stSidebar"] div[role="radiogroup"] > label[data-checked="true"] {
+            background: #66b2ff;
+            color: #001f3f !important;
+            font-weight: bold;
+            border: 1px solid #004080;
         }
     </style>
 """, unsafe_allow_html=True)
