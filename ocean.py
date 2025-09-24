@@ -15,7 +15,12 @@ st.markdown("""
         header[data-testid="stHeader"] {
             background: linear-gradient(to right, #001f3f, #003366);
         }
-
+        
+        /* Ensure title/icons show properly */
+        h1, h2, h3 {
+            color: white !important;
+        }
+        
         /* Main background */
         .stApp {
             background: #f4f9ff; /* Light oceanic background */
@@ -59,18 +64,19 @@ with st.container():
             display: none;
         }
 
-        /* Radio buttons styled as tabs */
+         /* Fix alignment: make labels take full width */
         section[data-testid="stSidebar"] div[role="radiogroup"] > label {
-            background: transparent;
-            color: #cce6ff !important;
-            border-radius: 8px;
-            padding: 8px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 10px 14px;
             margin: 4px 0;
-            transition: all 0.3s ease;
+            border-radius: 8px;
+            font-size: 16px;
+            background: transparent;
             border: 1px solid transparent;
-            display: block;
+            transition: all 0.3s ease;
         }
-
         /* Hover effect */
         section[data-testid="stSidebar"] div[role="radiogroup"] > label:hover {
             background: rgba(255, 255, 255, 0.1);
