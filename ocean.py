@@ -9,6 +9,17 @@ from oto_edna import otolith_species, edna_species
 
 st.set_page_config(page_title="AI-Driven Marine Data Platform", layout="wide")
 
+st.markdown("""
+    <style>
+    [data-testid="stHeader"] {
+        background-color: #001F3F;
+    }
+    [data-testid="stHeader"] * {
+        color: white !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 # Sidebar Navigation
 menu = [
     "Home", 
@@ -61,8 +72,14 @@ if choice == "Home":
     st.title("🌊 AI-Driven Unified Data Platform for Marine Biodiversity")
     st.markdown("""
     ### About CMLRE  
-    The Centre for Marine Living Resources & Ecology (CMLRE), Kochi, focuses on 
-    sustainable management of India’s marine biodiversity.  
+    The Centre for Marine Living Resources & Ecology (CMLRE) is a research institution under India's Ministry of Earth Sciences. Its core mission is to manage, conserve, and sustainably utilize marine living resources in India's waters.
+
+###CMLRE was established in Kochi in 1998 with the mandate to:
+
+Develop management strategies for marine living resources by monitoring and modeling marine ecosystems.
+Coordinate and implement national research and development (R&D) programs related to marine biodiversity and ecology.
+Store and disseminate data on marine living resources to researchers and end-users.
+Coordinate national programs concerning living resources in the Southern Ocean (Antarctic marine life).
 
     ### Why this platform?  
     - Integrates oceanographic, fisheries, taxonomy, and molecular (eDNA) data  
