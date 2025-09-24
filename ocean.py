@@ -11,11 +11,34 @@ st.set_page_config(page_title="AI-Driven Marine Data Platform", layout="wide")
 
 st.markdown("""
     <style>
-    /* Top navigation / toolbar */
+     /* Top navigation/header */
         header[data-testid="stHeader"] {
             background: linear-gradient(to right, #001f3f, #003366);
         }
 
+        /* Main background */
+        .stApp {
+            background: #f4f9ff; /* Light oceanic background */
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# Sidebar Navigation
+menu = [
+    "Home", 
+    "Visualization", 
+    "Taxonomy Explorer", 
+    "Otolith & Morphology", 
+    "eDNA Module",  
+    "User Guide"
+]
+
+
+with st.container():
+    choice=st.sidebar.radio("**navigation**",menu)
+    st.markdown(
+    """
+    <style>
         /* Sidebar background */
         section[data-testid="stSidebar"] {
             background: linear-gradient(to bottom, #001f3f, #003366);
@@ -36,7 +59,7 @@ st.markdown("""
             display: none;
         }
 
-        /* Radio buttons styled as smooth tabs */
+        /* Radio buttons styled as tabs */
         section[data-testid="stSidebar"] div[role="radiogroup"] > label {
             background: transparent;
             color: #cce6ff !important;
@@ -54,7 +77,7 @@ st.markdown("""
             cursor: pointer;
         }
 
-        /* Selected tab effect */
+        /* Selected option effect */
         section[data-testid="stSidebar"] div[role="radiogroup"] > label[data-checked="true"] {
             background: #66b2ff;
             color: #001f3f !important;
@@ -62,21 +85,10 @@ st.markdown("""
             border: 1px solid #004080;
         }
     </style>
-""", unsafe_allow_html=True)
+    """,
+    unsafe_allow_html=True
+)
 
-# Sidebar Navigation
-menu = [
-    "Home", 
-    "Visualization", 
-    "Taxonomy Explorer", 
-    "Otolith & Morphology", 
-    "eDNA Module",  
-    "User Guide"
-]
-
-
-with st.container():
-    choice=st.sidebar.radio("**navigation**",menu)
     
 # ---------------- Home ----------------
 if choice == "Home":
