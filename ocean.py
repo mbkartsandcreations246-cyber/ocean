@@ -40,13 +40,6 @@ st.markdown("""
             margin-bottom: 4px;
             display: block;
         }
-
-        /* Highlight selected radio */
-        section[data-testid="stSidebar"] div[role="radiogroup"] > label[data-checked="true"] {
-            background: #66b2ff; /* bright ocean blue */
-            color: #001f3f !important; /* dark text for contrast */
-            font-weight: bold;
-        }
     </style>
 """, unsafe_allow_html=True)
 
