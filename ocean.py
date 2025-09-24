@@ -11,31 +11,41 @@ st.set_page_config(page_title="AI-Driven Marine Data Platform", layout="wide")
 
 st.markdown("""
     <style>
-    [data-testid="stHeader"] {
-        background-color: #001F3F;
-    }
-    [data-testid="stHeader"] * {
-        color: white !important;
-    }
-    /* Sidebar */
+    /* Top navigation / toolbar area */
+        header[data-testid="stHeader"] {
+            background: linear-gradient(to right, #001f3f, #003366); /* oceanic dark blue */
+        }
+
+        /* Sidebar background */
         section[data-testid="stSidebar"] {
-            background: linear-gradient(to bottom, #001f3f, #003366); /* dark blue gradient */
+            background: linear-gradient(to bottom, #001f3f, #003366);
             color: white;
         }
 
-        /* Sidebar text */
-        section[data-testid="stSidebar"] .css-1v3fvcr {
-            color: white !important;
-        }
-
-        /* Sidebar headings */
-        section[data-testid="stSidebar"] h2 {
-            color: #66b2ff !important; /* light ocean blue headings */
-        }
-
-        /* Sidebar labels */
+        /* Sidebar titles and text */
+        section[data-testid="stSidebar"] h1,
+        section[data-testid="stSidebar"] h2,
+        section[data-testid="stSidebar"] h3,
+        section[data-testid="stSidebar"] p,
         section[data-testid="stSidebar"] label {
-            color: #cce6ff !important;
+            color: #cce6ff !important; /* light ocean blue */
+        }
+
+        /* Radio buttons */
+        section[data-testid="stSidebar"] div[role="radiogroup"] > label {
+            background: rgba(255, 255, 255, 0.1); /* subtle background */
+            color: #ffffff !important;  /* white text */
+            border-radius: 6px;
+            padding: 4px 8px;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        /* Highlight selected radio */
+        section[data-testid="stSidebar"] div[role="radiogroup"] > label[data-checked="true"] {
+            background: #66b2ff; /* bright ocean blue */
+            color: #001f3f !important; /* dark text for contrast */
+            font-weight: bold;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -53,39 +63,6 @@ menu = [
 
 with st.container():
     choice=st.sidebar.radio("**navigation**",menu)
-    st.markdown(
-    """
-    <style>
-    /* Container background */
-    div[data-baseweb="radio"] > div {
-        background-color: #4CAF50;
-        border-radius: 8px;
-        padding: 5px;
-        display: flex;
-        justify-content: space-around; /* spread buttons */
-        width: 100%;
-    }
-
-    /* Unselected buttons */
-    div[data-baseweb="radio"] span[data-baseweb="radio-button"] label {
-        background-color: #388E3C;
-        color: white;
-        font-weight: bold;
-        padding: 8px 12px;
-        border-radius: 5px;
-        margin: 2px;
-        cursor: pointer;
-    }
-
-    /* Selected button */
-    div[data-baseweb="radio"] span[data-baseweb="radio-button"] input:checked + label {
-        background-color: #1B5E20;
-        color: white;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
     
 # ---------------- Home ----------------
 if choice == "Home":
