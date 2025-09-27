@@ -88,7 +88,7 @@ with st.container():
     
 # ---------------- Home ----------------
 if choice == "Home":
-    st.title("🌊 AI-Driven Unified Data Platform for Marine Biodiversity")
+    st.title("AI-Driven Unified Data Platform for Marine Biodiversity")
     st.markdown("""
     ### About CMLRE  
     The Centre for Marine Living Resources & Ecology (CMLRE) is a research institution under India's Ministry of Earth Sciences. Its core mission is to manage, conserve, and sustainably utilize marine living resources in India's waters.
@@ -108,7 +108,7 @@ if choice == "Home":
 
 # ---------------- Visualization ----------------
 elif choice == "Visualization":
-    st.title("📊 Visualize Oceanographic & Biodiversity Trends")
+    st.title("Visualize Oceanographic & Biodiversity Trends")
     
     option = st.radio("Choose Data Source:", ["Upload My Data", "Use stored Data"])
     
@@ -140,7 +140,7 @@ elif choice == "Visualization":
            
 
     #----map-----        
-    st.title("🌍 Species Distribution Map")
+    st.title("Species Distribution Map")
     st.write("This map shows distribution of selected species along Indian coastline.")
 
      # Dummy data with species & coordinates
@@ -174,7 +174,7 @@ elif choice == "Visualization":
         
 # ---------------- Taxonomy Explorer ----------------
 elif choice == "Taxonomy Explorer":
-    st.title("🧬 Taxonomy Explorer")
+    st.title("Taxonomy Explorer")
 
     st.write("Browse through taxonomy levels:")
     phylum = st.selectbox("Select Phylum", list(taxonomy.keys()))
@@ -186,7 +186,7 @@ elif choice == "Taxonomy Explorer":
     # Display species info
     info = taxonomy[phylum][cls][order][family][species]["info"]
     image_path = taxonomy[phylum][cls][order][family][species]["image"]
-    st.success(f"📌 Selected Species: {species}")
+    st.success(f"Selected Species: {species}")
     st.write("##")
     coll, colr = st.columns(2)
     with coll:
@@ -197,7 +197,7 @@ elif choice == "Taxonomy Explorer":
     
 # ---------------- Otolith ----------------
 elif choice == "Otolith & Morphology":
-    st.title("🐟 Otolith & Morphology Module")
+    st.title("Otolith & Morphology Module")
     img = st.file_uploader("Upload Otolith Image", type=["jpg","png"])
     if img:
         st.image(img, caption="Uploaded Otolith Image", use_container_width=True)
@@ -218,7 +218,7 @@ elif choice == "Otolith & Morphology":
 
 # ---------------- eDNA ----------------
 elif choice == "eDNA Module":
-    st.title("🧬 eDNA Analysis")
+    st.title("eDNA Analysis")
     # User pastes the sequence
     edna_seq = st.text_area("Paste eDNA sequence here", height=10)
 
@@ -242,7 +242,7 @@ elif choice == "eDNA Module":
         st.warning("Please enter the edna sequence")
 # ---------------- User Guide ----------------
 elif choice == "User Guide":
-    st.title("📖 User Manual")
+    st.title("User Manual")
     st.markdown("""
     **Steps to Use Platform**  
     1. Explore biodiversity & ocean trends in Visualization tab.  
