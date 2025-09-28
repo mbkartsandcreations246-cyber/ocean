@@ -118,7 +118,7 @@ elif choice == "Visualization":
             df = pd.read_csv(uploaded)
     else:
         # Replace with your own GitHub raw CSV link
-        sample_url = "https://raw.githubusercontent.com/mbkartsandcreations246-cyber/ocean/refs/heads/main/oceanographic_biodiversity.csv"
+        sample_url = "https://raw.githubusercontent.com/mbkartsandcreations246-cyber/ocean/refs/heads/main/oceanographic.csv"
         df = pd.read_csv(sample_url)
 
     if 'df' in locals():
